@@ -3,6 +3,14 @@ body {
   margin: 0;
 }
 
+p {
+  margin: 0;
+}
+
+h2 {
+  margin-bottom: 0;
+}
+
 .header {
   display: flex;
   flex-direction: row;
@@ -27,11 +35,11 @@ body {
 }
 
 .photographer {
-  justify-self: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  justify-self: center;
 }
 .photographer__portrait {
   height: 200px;

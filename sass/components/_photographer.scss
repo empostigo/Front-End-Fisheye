@@ -1,9 +1,9 @@
 .photographer {
-  justify-self: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  justify-self: center;
 
   &__portrait {
     height: 200px;
@@ -13,7 +13,7 @@
   }
 
   &__heading {
-    color: #d3573c;
+    color: $photographer-name;
     font-size: 36px;
   }
 }

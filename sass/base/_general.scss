@@ -1,4 +1,12 @@
 body {
-  font-family: "DM Sans", sans-serif;
+  font-family: $page-fonts;
   margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+h2 {
+  margin-bottom: 0;
 }
