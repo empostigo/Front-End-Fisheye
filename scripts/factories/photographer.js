@@ -9,7 +9,7 @@ function photographerFactory(data) {
   // create cost string with price
   const cost = `${price}€/jour`
 
-  // set class name, used in BEM notation
+  // set class name, use in BEM notation
   const articleClass = "photographer"
   const imgClass = `${articleClass}__portrait`
   const h2Class = `${articleClass}__heading`
