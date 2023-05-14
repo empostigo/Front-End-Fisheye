@@ -1,23 +1,8 @@
-body {
-  font-family: "DM Sans", sans-serif;
-  margin: 0;
-}
+@charset 'utf-8';
 
-.header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  height: 90px;
-}
-.header__logo {
-  height: 50px;
-  margin-left: 100px;
-}
-.header__heading {
-  color: #901c1c;
-  margin-right: 100px;
-}
+@import "base/general";
+@import "layouts/header";
+@import "components/photographer";
 
 .photographer_section {
   display: grid;
@@ -43,5 +28,3 @@ body {
   height: 200px;
   width: 200px;
 }
-
-/*# sourceMappingURL=style.css.map */
