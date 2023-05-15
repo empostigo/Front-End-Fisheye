@@ -4,7 +4,7 @@ async function getPhotographers() {
   return fetch(url)
     .then((response) => response.json())
     .then((response) => response.photographers)
-    .catch(console.log("Erreur lors de la lecture des données"))
+    .catch((err) => console.log("Erreur lors de la lecture des données", err))
 }
 
 async function displayData(photographers) {
