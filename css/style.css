@@ -18,6 +18,9 @@ h2 {
   align-items: center;
   height: 90px;
 }
+.header__anchor {
+  height: 50px;
+}
 .header__logo {
   height: 50px;
   margin-left: 100px;
