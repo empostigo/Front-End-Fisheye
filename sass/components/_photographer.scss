@@ -1,9 +1,9 @@
 .photographer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  justify-self: center;
+  &__anchor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
   &__portrait {
     height: 200px;
@@ -15,11 +15,26 @@
   &__heading {
     color: $photographer-name;
     font-size: 36px;
+    text-align: center;
   }
 
   &__description {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  &__location {
+    font-size: 13px;
+    color: $h2-color;
+  }
+
+  &__tagline {
+    font-size: 10px;
+  }
+
+  &__price {
+    font-size: 9px;
+    color: #757575;
   }
 }
