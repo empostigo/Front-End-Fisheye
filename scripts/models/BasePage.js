@@ -1,4 +1,4 @@
-class BasePage {
+export class BasePage {
   constructor(photographer) {
     this.name = photographer.name
     this.id = photographer.id

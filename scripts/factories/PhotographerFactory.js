@@ -1,4 +1,7 @@
-class PhotographerFactory {
+import { HomePage } from "../models/HomePage.js"
+//import { PhotographerPage } from "../models/PhotographerPage.js"
+
+export class PhotographerFactory {
   constructor(data, type) {
     // HomePage (index.js) photographers type
     if (type === "home") return new HomePage(data)

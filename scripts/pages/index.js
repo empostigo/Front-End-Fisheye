@@ -1,3 +1,5 @@
+import { PhotographerFactory } from "../factories/PhotographerFactory.js"
+
 async function getPhotographers() {
   const url = "/data/photographers.json"
 
