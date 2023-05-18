@@ -20,6 +20,12 @@ export class HomePage extends BasePage {
     const anchor = document.createElement("a")
     anchor.className = anchorClass
     anchor.tabIndex = 0
+    // Building an url with the id of the photographer
+    const host = window.location.host
+    const pathname = "photographer.html"
+    const photographerUrl = new URL(`http://${host}/${pathname}?id=${this.id}`)
+    anchor.href = photographerUrl
+    // ARIA accessible name
     const anchorAriaLabel = document.createAttribute("aria-label")
     anchorAriaLabel.value = this.name
     anchor.setAttributeNode(anchorAriaLabel)
