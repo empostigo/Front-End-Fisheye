@@ -1,5 +1,5 @@
 import { HomePage } from "../models/HomePage.js"
-//import { PhotographerPage } from "../models/PhotographerPage.js"
+import { PhotographerPage } from "../models/PhotographerPage.js"
 
 export class PhotographerFactory {
   constructor(data, type) {

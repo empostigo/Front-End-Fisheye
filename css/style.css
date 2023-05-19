@@ -74,11 +74,7 @@ h2 {
   color: #757575;
 }
 
-#contact_modal {
-  display: none;
-}
-
-.photograph-header {
+.photographer-header {
   background-color: #fafafa;
   height: 300px;
   margin: 0 100px;
@@ -95,6 +91,10 @@ h2 {
   background-color: #901c1c;
   border-radius: 5px;
   cursor: pointer;
+}
+
+#contact_modal {
+  display: none;
 }
 
 .modal {

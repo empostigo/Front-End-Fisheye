@@ -9,7 +9,7 @@ export class HomePage extends BasePage {
     // set class name, use BEM notation
     const articleClass = "photographer"
     const anchorClass = `${articleClass}__anchor`
-    const imgClass = `${articleClass}__portrait`
+    const imageClass = `${articleClass}__portrait`
     const h2Class = `${articleClass}__heading`
     const descriptionClass = `${articleClass}__description`
     const locationClass = `${articleClass}__location`
@@ -30,15 +30,15 @@ export class HomePage extends BasePage {
     anchorAriaLabel.value = this.name
     anchor.setAttributeNode(anchorAriaLabel)
 
-    const img = document.createElement("img")
-    img.className = imgClass
-    img.setAttribute("src", this.picture)
+    const image = document.createElement("img")
+    image.className = imageClass
+    image.setAttribute("src", this.picture)
 
     const h2 = document.createElement("h2")
     h2.className = h2Class
     h2.textContent = this.name
 
-    anchor.appendChild(img)
+    anchor.appendChild(image)
     anchor.appendChild(h2)
 
     // Description
