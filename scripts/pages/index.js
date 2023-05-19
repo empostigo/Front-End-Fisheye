@@ -1,15 +1,10 @@
+import { FetchData } from "../Api/FetchData.js"
 import { PhotographerFactory } from "../factories/PhotographerFactory.js"
 
-async function getPhotographers() {
-  const url = "/data/photographers.json"
+const url = "/data/photographers.json"
+const photographers = await new FetchData(url, "photographers").getData()
 
-  return fetch(url)
-    .then((response) => response.json())
-    .then((response) => response.photographers)
-    .catch((err) => console.log("Erreur lors de la lecture des données", err))
-}
-
-async function displayData(photographers) {
+function displayData(photographers) {
   const photographersSection = document.querySelector(".photographers")
 
   photographers.forEach((photographer) => {
@@ -19,9 +14,8 @@ async function displayData(photographers) {
   })
 }
 
-async function init() {
+function init() {
   // Récupère les datas des photographes
-  const photographers = await getPhotographers()
   displayData(photographers)
 }
 
