@@ -10,7 +10,7 @@ export class FetchData {
       .then((response) => {
         if (this.data === "photographers") {
           return response.photographers
-        } else {
+        } else if (this.data === "media") {
           return response.media
         }
       })

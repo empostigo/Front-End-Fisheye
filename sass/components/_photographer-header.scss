@@ -1,5 +1,39 @@
 .photographer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: #fafafa;
   height: 300px;
   margin: 0 100px;
+  padding: 0 50px;
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+  }
+
+  &__heading {
+    font-size: 64px;
+    line-height: 1;
+    color: #d3573c;
+    margin: 0;
+  }
+
+  &__location {
+    font-size: 24px;
+    color: #901c1c;
+  }
+
+  &__tagline {
+    font-size: 18px;
+    color: #525252;
+  }
+
+  &__portrait {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
 }

@@ -75,9 +75,38 @@ h2 {
 }
 
 .photographer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: #fafafa;
   height: 300px;
   margin: 0 100px;
+  padding: 0 50px;
+}
+.photographer-header__description {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.photographer-header__heading {
+  font-size: 64px;
+  line-height: 1;
+  color: #d3573c;
+  margin: 0;
+}
+.photographer-header__location {
+  font-size: 24px;
+  color: #901c1c;
+}
+.photographer-header__tagline {
+  font-size: 18px;
+  color: #525252;
+}
+.photographer-header__portrait {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .contact_button {

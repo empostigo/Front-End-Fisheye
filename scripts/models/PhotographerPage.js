@@ -8,15 +8,11 @@ export class PhotographerPage extends BasePage {
   getUserCardDOM = () => {
     // set class names , BEM notation
     const parentClass = "photographer-header"
-    const sibblingClass = "contact_button"
-    const descriptionClass = `${parentClass}__descrition`
+    const descriptionClass = `${parentClass}__description`
     const h1Class = `${parentClass}__heading`
     const locationClass = `${parentClass}__location`
     const pTagLineClass = `${parentClass}__tagline`
     const imageClass = `${parentClass}__portrait`
-
-    const parent = document.getElementsByClassName(parentClass)
-    const sibbling = document.getElementsByClassName(sibblingClass)
 
     // Name, city, country and tagline
     const description = document.createElement("div")
@@ -43,7 +39,6 @@ export class PhotographerPage extends BasePage {
     image.className = imageClass
     image.setAttribute("src", this.picture)
 
-    parent.appendChild(image)
-    parent.insertBefore(description, sibbling)
+    return { description, image }
   }
 }
