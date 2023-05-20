@@ -74,6 +74,12 @@ h2 {
   color: #757575;
 }
 
+.photographer-header__infos, .photographer-header__description {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
 .photographer-header {
   display: flex;
   justify-content: space-between;
@@ -82,11 +88,6 @@ h2 {
   height: 300px;
   margin: 0 100px;
   padding: 0 50px;
-}
-.photographer-header__description {
-  display: flex;
-  flex-direction: column;
-  row-gap: 20px;
 }
 .photographer-header__heading {
   font-size: 64px;
