@@ -1,11 +1,14 @@
 export class FetchData {
-  constructor(url, data) {
+  constructor(url, data, maxAge = "1600") {
     this.url = url
     this.data = data
+    this.maxAge = maxAge
+    this.header = new Headers()
+    this.header.append("Cache-Control", this.maxAge)
   }
 
   async get() {
-    return fetch(this.url)
+    return fetch(this.url, { headers: this.header })
       .then((response) => response.json())
       .then((response) => {
         if (this.data === "photographers") {

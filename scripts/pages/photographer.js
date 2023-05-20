@@ -8,7 +8,8 @@ const works = await new FetchData(url, "media").getData()
 const pageUrl = new URL(document.location).searchParams
 const photographerId = parseInt(pageUrl.get("id"))
 
-photographers.forEach((photographer) => {
+const photographer = photographers.values
+for (let photographer of photographers)
   if (Object.values(photographer).includes(photographerId)) {
     const photographerHeader = new PhotographerFactory(photographer, "works")
     const parent = document.querySelector(".photographer-header")
@@ -16,5 +17,6 @@ photographers.forEach((photographer) => {
     const { description, image } = photographerHeader.getUserCardDOM()
     parent.insertBefore(description, sibbling)
     parent.appendChild(image)
+
+    break
   }
-})
