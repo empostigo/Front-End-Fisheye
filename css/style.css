@@ -1,6 +1,6 @@
 body {
   font-family: "DM Sans", sans-serif;
-  margin: 0;
+  margin: 0 100px;
 }
 
 p {
@@ -27,11 +27,13 @@ h2 {
 }
 .header__logo {
   height: 50px;
-  margin-left: 100px;
 }
 .header__heading {
   color: #901c1c;
-  margin-right: 100px;
+}
+
+.main {
+  margin: 0 -100px;
 }
 
 .photographers {
@@ -39,6 +41,60 @@ h2 {
   grid-template-columns: 1fr 1fr 1fr;
   gap: 70px;
   margin: 100px 0;
+}
+
+.sorting {
+  display: flex;
+  column-gap: 25px;
+  margin-top: 20px;
+}
+.sorting__label {
+  font-size: 18px;
+  font-weight: 700;
+}
+.sorting__div {
+  position: relative;
+  height: 56px;
+  width: 170px;
+}
+.sorting__div::after {
+  content: url(/assets/icons/angle-down.svg);
+  position: absolute;
+  top: 35%;
+  right: 18px;
+  width: 16px;
+}
+.sorting__div:focus-within::after {
+  content: url(/assets/icons/angle-up.svg);
+}
+.sorting__select {
+  font-family: "DM Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  width: 170px;
+  background-color: #901c1c;
+  border: none;
+  border-radius: 5px;
+  appearance: none;
+  padding: 16px 20px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.sorting__select:focus {
+  padding: 0;
+}
+.sorting__option {
+  background-color: #901c1c;
+  border-top: solid 1px white;
+  border-image: linear-gradient(to right, transparent 5%, white 5%, white 95%, transparent 5%) 100% 1;
+  padding: 16px 20px;
+}
+.sorting__option:checked {
+  box-shadow: 0 0 10px 100px #901c1c inset;
+}
+.sorting__option--no-border {
+  border: none;
 }
 
 .photographer__anchor {
@@ -86,7 +142,6 @@ h2 {
   align-items: center;
   background-color: #fafafa;
   height: 300px;
-  margin: 0 100px;
   padding: 0 50px;
 }
 .photographer-header__heading {

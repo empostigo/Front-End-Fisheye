@@ -19,6 +19,20 @@
     <article class="photographer-header">
       <button class="contact_button" aria-label="Contact Me" onclick="displayModal()">Contactez-moi</button>
     </article>
+    <section class="works">
+      <div class="sorting">
+        <label for="categories" class="sorting__label" tabindex="0">Trier par</label>
+        <div class="sorting__div"> <!-- for styling purpose -->
+          <select name="categories" id="categories" class="sorting__select" onfocus="this.size=3;" onblur="this.size=0;"
+            onchange="this.size=0; this.blur()">
+            <option class="sorting__option sorting__option--no-border" value="popularité">Popularité</option>
+            <option class="sorting__option" value="date">Date</option>
+            <option class="sorting__option" value="titre">Titre</option>
+          </select>
+        </div>
+      </div>
+      <div class="works__display"></div>
+    </section>
   </main>
   <div id="contact_modal">
     <div class="modal">

@@ -48,4 +48,6 @@ export class PhotographerPage extends BasePage {
 
     return { description, image }
   }
+
+  getUserWorksDOM() {}
 }
