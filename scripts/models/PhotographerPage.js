@@ -4,14 +4,6 @@ export class PhotographerPage extends BasePage {
   constructor(photographer, medias) {
     super(photographer)
     this.medias = medias
-    /*
-    this.photographerId = media.photographerId
-    this.title = media.title
-    if (Object.keys(media).includes("image")) this.image = media.image
-    if (Object.keys(media).includes("video")) this.image = media.video
-    this.date = media.date
-    this.mediaPrice = media.price
-    */
   }
 
   countLikes() {
