@@ -98,6 +98,14 @@ h2 {
   border: none;
 }
 
+.works_display {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 95px;
+  row-gap: 30px;
+  margin: 60px 0;
+}
+
 .photographer__anchor {
   display: flex;
   flex-direction: column;
@@ -164,6 +172,56 @@ h2 {
   width: 200px;
   object-fit: cover;
   border-radius: 50%;
+}
+.photographer-header__insert {
+  position: fixed;
+  bottom: 0;
+  right: 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 500;
+  padding: 0 26px;
+  width: 280px;
+  height: 54px;
+  border-radius: 5px 5px 0 0;
+  background-color: #db8876;
+}
+
+.mediaCard {
+  display: flex;
+  flex-direction: column;
+  height: 340px;
+}
+.mediaCard__anchor {
+  height: 88%;
+}
+.mediaCard__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.mediaCard__description {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  row-gap: 10px;
+}
+.mediaCard__title {
+  margin: 0;
+  font-size: 24px;
+  color: #901c1c;
+}
+.mediaCard__likeDiv {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  color: #901c1c;
+}
+.mediaCard__likeIcon {
+  font-style: normal;
 }
 
 .contact_button {

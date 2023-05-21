@@ -6,8 +6,10 @@
 @import "layouts/main";
 @import "layouts/photographers";
 @import "layouts/works_sorting";
+@import "layouts/works_display";
 @import "components/photographer";
 @import "components/photographer-header";
+@import "components/mediaCard";
 @import "components/contact_button";
 
 #contact_modal {

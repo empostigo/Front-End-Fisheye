@@ -1,0 +1,40 @@
+.mediaCard {
+  display: flex;
+  flex-direction: column;
+  height: 340px;
+
+  &__anchor {
+    height: 88%;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+
+  &__description {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    row-gap: 10px;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 24px;
+    color: #901c1c;
+  }
+
+  &__likeDiv {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    color: #901c1c;
+  }
+
+  &__likeIcon {
+    font-style: normal;
+  }
+}

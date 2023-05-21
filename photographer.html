@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
   <link href="css/style.css" rel="stylesheet" type="text/css" />
@@ -24,14 +24,14 @@
         <label for="categories" class="sorting__label" tabindex="0">Trier par</label>
         <div class="sorting__div"> <!-- for styling purpose -->
           <select name="categories" id="categories" class="sorting__select" onfocus="this.size=3;" onblur="this.size=0;"
-            onchange="this.size=1; this.blur()">
+            onchange="this.size=1; this.blur()" aria-label="Order by">
             <option class="sorting__option sorting__option--no-border" value="popularité">Popularité</option>
             <option class="sorting__option" value="date">Date</option>
             <option class="sorting__option" value="titre">Titre</option>
           </select>
         </div>
       </div>
-      <div class="works__display"></div>
+      <div class="works_display"></div>
     </section>
   </main>
   <div id="contact_modal">

@@ -8,15 +8,29 @@ const works = await new FetchData(url, "media").getData()
 const pageUrl = new URL(document.location).searchParams
 const photographerId = parseInt(pageUrl.get("id"))
 
-const photographer = photographers.values
 for (let photographer of photographers)
   if (Object.values(photographer).includes(photographerId)) {
-    const photographerHeader = new PhotographerFactory(photographer, "works")
+    // get photographer works
+    const mediaArray = []
+    for (let media of works)
+      if (Object.values(media).includes(photographerId)) mediaArray.push(media)
+
+    const photographerPage = new PhotographerFactory(
+      photographer,
+      "works",
+      mediaArray
+    )
+
     const parent = document.querySelector(".photographer-header")
     const sibbling = document.querySelector(".contact_button")
-    const { description, image } = photographerHeader.getUserCardDOM()
+    const { description, image, insert } = photographerPage.getUserCardDOM()
     parent.insertBefore(description, sibbling)
     parent.appendChild(image)
+    parent.appendChild(insert)
+
+    const workDisplay = document.querySelector(".works_display")
+    const cardArray = photographerPage.getUserWorksDOM()
+    for (let card of cardArray) workDisplay.appendChild(card)
 
     break
   }
