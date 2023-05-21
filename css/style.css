@@ -51,6 +51,7 @@ h2 {
 .sorting__label {
   font-size: 18px;
   font-weight: 700;
+  align-self: center;
 }
 .sorting__div {
   position: relative;

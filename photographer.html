@@ -24,7 +24,7 @@
         <label for="categories" class="sorting__label" tabindex="0">Trier par</label>
         <div class="sorting__div"> <!-- for styling purpose -->
           <select name="categories" id="categories" class="sorting__select" onfocus="this.size=3;" onblur="this.size=0;"
-            onchange="this.size=0; this.blur()">
+            onchange="this.size=1; this.blur()">
             <option class="sorting__option sorting__option--no-border" value="popularité">Popularité</option>
             <option class="sorting__option" value="date">Date</option>
             <option class="sorting__option" value="titre">Titre</option>
