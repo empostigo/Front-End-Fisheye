@@ -1,4 +1,5 @@
 import { BasePage } from "./BasePage.js"
+import { MediaFactory } from "../factories/MediaFactory.js"
 
 export class PhotographerPage extends BasePage {
   constructor(photographer, medias) {
@@ -73,10 +74,10 @@ export class PhotographerPage extends BasePage {
     return { description, image, insert }
   }
 
-  getUserWorkCard(media) {
+  getUserWorkCard(data) {
     // class names
     const mediaCardClass = "mediaCard"
-    const imageClass = `${mediaCardClass}__image`
+    const mediaClass = `${mediaCardClass}__media`
     const anchorClass = `${mediaCardClass}__anchor`
     const h2Class = `${mediaCardClass}__title`
     const nbLikesClass = `${mediaCardClass}__nbLikes`
@@ -85,28 +86,26 @@ export class PhotographerPage extends BasePage {
     const descriptionClass = `${mediaCardClass}__description`
 
     // card component
-    const image = document.createElement("img")
-    image.className = imageClass
-    if (Object.keys(media).includes("image")) {
-      image.src = `/assets/works/${this.name}/${media.image}`
-    }
+    const basedir = `/assets/works/${this.name}`
+    const media = new MediaFactory(data, basedir).mediaElement
+    media.className = mediaClass
     const anchor = document.createElement("a")
     anchor.className = anchorClass
     anchor.href = "#"
     const anchorAriaLabel = document.createAttribute("aria-label")
-    anchorAriaLabel.value = `${media.title}, closeup view`
+    anchorAriaLabel.value = `${data.title}, closeup view`
     anchor.tabIndex = 0
     anchor.setAttributeNode(anchorAriaLabel)
-    anchor.appendChild(image)
+    anchor.appendChild(media)
 
     const h2 = document.createElement("h2")
     h2.className = h2Class
-    h2.textContent = media.title
+    h2.textContent = data.title
     h2.tabIndex = 0
 
     const nbLikes = document.createElement("span")
     nbLikes.className = nbLikesClass
-    nbLikes.textContent = media.price
+    nbLikes.textContent = data.price
     const likeIcon = document.createElement("i")
     likeIcon.className = likeIconClass
     likeIcon.textContent = "\u2665"
