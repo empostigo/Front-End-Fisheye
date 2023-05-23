@@ -14,9 +14,16 @@
 
 #contact_modal {
   display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 .modal {
+  position: relative;
+  top: 63px;
   border-radius: 5px;
   background-color: #db8876;
   width: 50%;
@@ -34,6 +41,9 @@
 }
 
 .modal header img {
+  position: absolute;
+  top: 35px;
+  right: 35px;
   cursor: pointer;
 }
 
