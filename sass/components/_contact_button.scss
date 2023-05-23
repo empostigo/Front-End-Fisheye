@@ -9,4 +9,9 @@
   background-color: #901c1c;
   border-radius: 5px;
   cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: #d3573c;
+  }
 }

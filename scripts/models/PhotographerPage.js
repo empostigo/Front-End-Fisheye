@@ -105,7 +105,7 @@ export class PhotographerPage extends BasePage {
 
     const nbLikes = document.createElement("span")
     nbLikes.className = nbLikesClass
-    nbLikes.textContent = data.price
+    nbLikes.textContent = data.likes
     const likeIcon = document.createElement("i")
     likeIcon.className = likeIconClass
     likeIcon.textContent = "\u2665"
