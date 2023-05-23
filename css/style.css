@@ -277,6 +277,7 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: start;
+  height: 12%;
 }
 .mediaCard__title {
   margin: 0;
