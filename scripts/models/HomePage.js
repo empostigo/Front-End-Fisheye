@@ -1,10 +1,6 @@
 import { BasePage } from "./BasePage.js"
 
 export class HomePage extends BasePage {
-  constructor(photographer) {
-    super(photographer)
-  }
-
   getUserCardDOM = () => {
     // set class name, use BEM notation
     const articleClass = "photographer"

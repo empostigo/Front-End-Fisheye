@@ -1,5 +1,6 @@
 import { FetchData } from "../Api/FetchData.js"
 import { PhotographerFactory } from "../factories/PhotographerFactory.js"
+import { ContactForm } from "../utils/ContactForm.js"
 
 const url = "/data/photographers.json"
 const photographers = await new FetchData(url, "photographers").getData()
@@ -22,11 +23,9 @@ for (let photographer of photographers)
     )
 
     const parent = document.querySelector(".photographer-header")
-    const sibbling = document.querySelector(".contact_button")
     const { description, image, insert } = photographerPage.getUserCardDOM()
-    parent.insertBefore(description, sibbling)
-    parent.appendChild(image)
-    parent.appendChild(insert)
+    parent.prepend(description)
+    parent.append(image, insert)
 
     const workDisplay = document.querySelector(".works_display")
     const cardArray = photographerPage.getUserWorksDOM()
@@ -34,3 +33,6 @@ for (let photographer of photographers)
 
     break
   }
+
+const contactForm = new ContactForm("contactModal", "openModal", "closeModal")
+ContactForm.initElements(contactForm)

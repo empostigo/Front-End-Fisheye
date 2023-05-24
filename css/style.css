@@ -12,7 +12,7 @@ a {
 }
 
 h2 {
-  margin-bottom: 0;
+  margin: 0;
 }
 
 .header {
@@ -124,30 +124,30 @@ h2 {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 35px;
+  row-gap: 20px;
+  padding: 15px 35px 35px;
   margin: auto;
 }
 .modal__header {
+  display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
 }
 .modal__title {
   font-size: 64px;
   font-weight: normal;
-  text-align: center;
 }
 .modal__close {
-  position: absolute;
-  top: 35px;
-  right: 35px;
   cursor: pointer;
 }
 
 .form {
   display: flex;
-  width: 100%;
   flex-direction: column;
   align-items: flex-start;
+  row-gap: 10px;
+  width: 100%;
 }
 .form__content {
   display: flex;
