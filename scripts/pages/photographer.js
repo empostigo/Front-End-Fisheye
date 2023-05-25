@@ -34,5 +34,10 @@ for (let photographer of photographers)
     break
   }
 
-const contactForm = new ContactForm("contactModal", "openModal", "closeModal")
+const contactForm = new ContactForm(
+  "contactModal",
+  "openModal",
+  "closeModal",
+  "modalForm"
+)
 ContactForm.initElements(contactForm)
