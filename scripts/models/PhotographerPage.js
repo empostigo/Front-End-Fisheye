@@ -1,10 +1,17 @@
 import { BasePage } from "./BasePage.js"
 import { MediaFactory } from "../factories/MediaFactory.js"
+import { ContactForm } from "../utils/ContactForm.js"
 
 export class PhotographerPage extends BasePage {
   constructor(photographer, medias) {
     super(photographer)
     this.medias = medias
+    this.contactForm = new ContactForm(
+      "contactModal",
+      "openModal",
+      "closeModal",
+      this.name
+    )
   }
 
   countLikes() {
@@ -136,5 +143,9 @@ export class PhotographerPage extends BasePage {
     for (let media of this.medias) cardArray.push(this.getUserWorkCard(media))
 
     return cardArray
+  }
+
+  setModal() {
+    ContactForm.initElements(this.contactForm)
   }
 }

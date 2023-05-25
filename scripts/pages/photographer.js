@@ -1,6 +1,5 @@
 import { FetchData } from "../Api/FetchData.js"
 import { PhotographerFactory } from "../factories/PhotographerFactory.js"
-import { ContactForm } from "../utils/ContactForm.js"
 
 const url = "/data/photographers.json"
 const photographers = await new FetchData(url, "photographers").getData()
@@ -31,13 +30,7 @@ for (let photographer of photographers)
     const cardArray = photographerPage.getUserWorksDOM()
     for (let card of cardArray) workDisplay.appendChild(card)
 
+    photographerPage.setModal()
+
     break
   }
-
-const contactForm = new ContactForm(
-  "contactModal",
-  "openModal",
-  "closeModal",
-  "modalForm"
-)
-ContactForm.initElements(contactForm)

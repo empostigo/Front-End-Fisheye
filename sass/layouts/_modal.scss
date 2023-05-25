@@ -24,7 +24,7 @@
   &__header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
     width: 100%;
   }
 
@@ -33,6 +33,7 @@
     font-weight: normal;
   }
   &__close {
+    margin-top: 20px;
     cursor: pointer;
   }
 }

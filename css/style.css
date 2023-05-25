@@ -131,7 +131,7 @@ h2 {
 .modal__header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
   width: 100%;
 }
 .modal__title {
@@ -139,6 +139,7 @@ h2 {
   font-weight: normal;
 }
 .modal__close {
+  margin-top: 20px;
   cursor: pointer;
 }
 
