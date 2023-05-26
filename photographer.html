@@ -17,7 +17,7 @@
   </header>
   <main id="main">
     <article class="photographer-header">
-      <button id="openModal" class="contact_button" aria-label="Contact Me">Contactez-moi</button>
+      <button id="openModal" class="contact_button" aria-label="Contactez Moi">Contactez-moi</button>
     </article>
     <section class="works">
       <div class="sorting">
@@ -37,21 +37,22 @@
   <div id="contactModal" class="modal">
     <div class="modal__content">
       <header class="modal__header">
-        <h2 id="modalTitle" class="modal__title">Contactez-moi</h2>
-        <img id="closeModal" class="modal__close" src="assets/icons/close.svg">
+        <h2 id="modalTitle" class="modal__title" tabindex="0">Contactez-moi</h2>
+        <img id="closeModal" class="modal__close" src="assets/icons/close.svg"
+          aria-label="Fermer le formulaire de contact" tabindex="12">
       </header>
       <form id="modalForm" class="form">
         <div class="form__content">
-          <label class="form__label" for="firstname">Prénom</label>
-          <input class="form__input" type="text" id="firstname" name="firstname">
-          <label class="form__label" for="lastname">Nom</label>
-          <input class="form__input" type="text" id="lastname" name="lastname">
-          <label class="form__label" for="email">Email</label>
-          <input class="form__input" type="text" id="email" name="email">
-          <label class="form__label" for="message">Votre message</label>
-          <textarea class="form__message" name="message" id="message" cols="30" rows="10"></textarea>
+          <label class="form__label" for="firstname" tabindex="0">Prénom</label>
+          <input class="form__input" type="text" id="firstname" name="firstname" tabindex="0">
+          <label class="form__label" for="lastname" tabindex="0">Nom</label>
+          <input class="form__input" type="text" id="lastname" name="lastname" tabindex="0">
+          <label class="form__label" for="email" tabindex="0">Email</label>
+          <input class="form__input" type="text" id="email" name="email" tabindex="0">
+          <label class="form__label" for="message" tabindex="0">Votre message</label>
+          <textarea class="form__message" name="message" id="message" cols="30" rows="10" tabindex="0"></textarea>
         </div>
-        <button id="sendButton" class="contact_button">Envoyer</button>
+        <button id="sendButton" class="contact_button" aria-label="Envoyer" tabindex="0">Envoyer</button>
       </form>
     </div>
   </div>

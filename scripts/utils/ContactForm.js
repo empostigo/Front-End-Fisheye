@@ -5,7 +5,11 @@ export class ContactForm {
     this.closeElement = document.getElementById(closeElement)
     this.photographer = photographer
     this.modalForm = this.modal.getElementsByTagName("FORM")[0]
-    this.inputElements = Array.from(this.modalForm.elements)
+    this.inputElements = Array.from(this.modalForm.elements).filter(
+      (element) => {
+        if (element.tagName !== "BUTTON") return element
+      }
+    )
   }
 
   setAccessibility() {
@@ -14,13 +18,29 @@ export class ContactForm {
     const br = document.createElement("br")
     title.append(br, name)
 
-    const modalArialLabelledBy = document.createAttribute("aria-labelledby")
-    modalArialLabelledBy.value = "modalTitle"
-    this.modal.setAttributeNode(modalArialLabelledBy)
+    const modalAriaLabelledBy = document.createAttribute("aria-labelledby")
+    modalAriaLabelledBy.value = "modalTitle"
+    this.modal.setAttributeNode(modalAriaLabelledBy)
 
     const closeElementAriaLabel = document.createAttribute("aria-label")
     closeElementAriaLabel.value = "Close Contact form"
     this.closeElement.setAttributeNode(closeElementAriaLabel)
+
+    const labels = []
+    this.inputElements.forEach((element) => labels.push(element.labels[0]))
+    const labelIds = ["FirstName", "LastName", "Email", "YourMessage"]
+    labels.map((element, counter) => (element.id = labelIds[counter]))
+
+    let tmpAria
+    const ariaLabelledByArray = []
+    labelIds.forEach((element) => {
+      tmpAria = document.createAttribute("aria-labelledby")
+      tmpAria.value = element
+      ariaLabelledByArray.push(tmpAria)
+    })
+    this.inputElements.forEach((element, counter) =>
+      element.setAttributeNode(ariaLabelledByArray[counter])
+    )
   }
 
   static initElements(modal) {
@@ -35,11 +55,10 @@ export class ContactForm {
     modal.modalForm.addEventListener("submit", (event) => {
       event.preventDefault()
       modal.inputElements.forEach((element) => {
-        if (element.tagName !== "BUTTON") {
-          console.log(element.value)
-          element.value = ""
-        }
+        console.log(element.value)
+        element.value = ""
       })
+
       modal.modal.style.display = "none"
     })
 
