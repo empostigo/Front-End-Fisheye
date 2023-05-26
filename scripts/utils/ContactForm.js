@@ -6,9 +6,7 @@ export class ContactForm {
     this.photographer = photographer
     this.modalForm = this.modal.getElementsByTagName("FORM")[0]
     this.inputElements = Array.from(this.modalForm.elements).filter(
-      (element) => {
-        if (element.tagName !== "BUTTON") return element
-      }
+      (element) => element.tagName !== "BUTTON"
     )
   }
 
