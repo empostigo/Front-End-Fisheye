@@ -1,6 +1,6 @@
 import { BasePage } from "./BasePage.js"
 import { MediaFactory } from "../factories/MediaFactory.js"
-import { ContactForm } from "../utils/ContactForm.js"
+import { ContactForm } from "../modals/ContactForm.js"
 
 export class PhotographerPage extends BasePage {
   constructor(photographer, medias) {
