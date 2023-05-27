@@ -14,6 +14,14 @@ export class PhotographerPage extends BasePage {
     )
   }
 
+  set medias(mediasArray) {
+    this._medias = mediasArray
+  }
+
+  get medias() {
+    return this._medias
+  }
+
   countLikes() {
     let count = 0
     for (let media of this.medias) count += media.likes
@@ -143,6 +151,14 @@ export class PhotographerPage extends BasePage {
     for (let media of this.medias) cardArray.push(this.getUserWorkCard(media))
 
     return cardArray
+  }
+
+  removeUserWorkCards(selector) {
+    const workDisplay = document.querySelector(selector)
+    const workDisplayCards = Array.from(workDisplay.children)
+    workDisplayCards.forEach((element) => {
+      workDisplay.removeChild(element)
+    })
   }
 
   setModal() {
