@@ -176,6 +176,35 @@ h2 {
   font-size: 36px;
 }
 
+.lightbox {
+  position: absolute;
+  top: 10vh;
+  left: 30vw;
+  height: 80vh;
+  width: 40vw;
+}
+.lightbox__previous {
+  position: relative;
+  top: 60%;
+  left: -54px;
+  font-size: 60px;
+  font-weight: 900;
+  color: #901c1c;
+}
+.lightbox__next {
+  position: absolute;
+  top: 60%;
+  right: -54px;
+  font-size: 60px;
+  font-weight: 900;
+  color: #901c1c;
+}
+.lightbox__container {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
 .photographer__anchor {
   display: flex;
   flex-direction: column;

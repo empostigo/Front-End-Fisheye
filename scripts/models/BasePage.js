@@ -19,6 +19,6 @@ export class BasePage {
   }
   // create cost string with price
   get cost() {
-    return `${this.price}€/jour`
+    return `${this.price}€ / jour`
   }
 }
