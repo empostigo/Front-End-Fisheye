@@ -2,12 +2,14 @@ import { HomePage } from "../models/HomePage.js"
 import { PhotographerPage } from "../models/PhotographerPage.js"
 
 export class PhotographerFactory {
-  constructor(data, type, otherData = "") {
+  constructor(data, otherData = "") {
+    this.pathname = new URL(document.location).pathname.replace("/", "")
     // HomePage (index.js) photographers type
-    if (type === "home") return new HomePage(data)
+    if (this.pathname === "index.html") return new HomePage(data)
     // PhotographerPage (photographer.js) photographer type
-    else if (type === "works") return new PhotographerPage(data, otherData)
-    // Unknown type
-    else throw "Type inconnu"
+    else if (this.pathname === "photographer.html")
+      return new PhotographerPage(data, otherData)
+    // Unknown Page
+    else throw "Page inconnu"
   }
 }

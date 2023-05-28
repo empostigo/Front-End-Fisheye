@@ -21,11 +21,7 @@ const photographer = photographers.filter((element) =>
   Object.values(element).includes(photographerId)
 )[0]
 
-const photographerPage = new PhotographerFactory(
-  photographer,
-  "works",
-  mediasArray
-)
+const photographerPage = new PhotographerFactory(photographer, mediasArray)
 
 const parent = document.querySelector(".photographer-header")
 const { description, image, insert } = photographerPage.getUserCardDOM()
