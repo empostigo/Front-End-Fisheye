@@ -1,5 +1,6 @@
 export class BasePage {
   constructor(photographer) {
+    this.photographer = photographer
     this.name = photographer.name
     this.id = photographer.id
     this.city = photographer.city

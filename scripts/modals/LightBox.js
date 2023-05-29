@@ -8,17 +8,26 @@ export class LightBox {
     this.previousMedia = document.getElementById("previousMedia")
     this.nextMedia = document.getElementById("nextMedia")
     this.closeLightBoxButton = document.getElementById("closeLightBox")
+    this.mediaIndex = 0
+    this.media = new MediaFactory(
+      this.mediaArray[this.mediaIndex],
+      `/assets/works/${this.photographer.name}`
+    ).lightBoxMedia
+    this.media.className = "lightbox__media"
+  }
+
+  set mediaArray(medias) {
+    this._mediaArray = medias
+  }
+
+  get mediaArray() {
+    return this._mediaArray
   }
 
   createMediaDOM() {
     const displayDiv = document.createElement("div")
     displayDiv.className = "lighbox__div"
-    const media = new MediaFactory(
-      this.mediaArray[0],
-      `/assets/works/${this.photographer.name}`
-    ).lightBoxMedia
-    media.className = "lightbox__media"
-    displayDiv.append(media)
+    displayDiv.append(this.media)
 
     return displayDiv
   }
@@ -40,11 +49,25 @@ export class LightBox {
     this.lightBox.style.display = "none"
   }
 
-  initElements() {
-    this.closeLightBoxButton.addEventListener("click", () => {
-      this.closeLightBox()
+  static initElements(lightBox) {
+    lightBox.closeLightBoxButton.addEventListener("click", () => {
+      lightBox.closeLightBox()
     })
 
-    //this.previousMedia.addEventListener("click", () =>)
+    lightBox.nextMedia.addEventListener("click", () => {
+      lightBox.mediaIndex++
+      lightBox.media = new MediaFactory(
+        lightBox.mediaArray[lightBox.mediaIndex],
+        `/assets/works/${lightBox.photographer.name}`
+      ).lightBoxMedia
+      lightBox.media.className = "lightbox__media"
+      document
+        .getElementById("lightBoxContainer")
+        .removeChild(lightBox.previousMedia.nextSibling)
+      lightBox.previousMedia.insertAdjacentElement(
+        "afterend",
+        lightBox.createMediaDOM(lightBox.photographer)
+      )
+    })
   }
 }

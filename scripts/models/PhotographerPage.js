@@ -18,7 +18,6 @@ export class PhotographerPage extends BasePage {
 
   set medias(mediasArray) {
     this._medias = mediasArray
-    this.lightBox = new LightBox(this.medias)
   }
 
   get medias() {
@@ -92,7 +91,7 @@ export class PhotographerPage extends BasePage {
     return { description, image, insert }
   }
 
-  getUserWorkCard(data) {
+  getUserWorkCard(data, index) {
     // class names
     const mediaCardClass = "mediaCard"
     const mediaClass = `${mediaCardClass}__media`
@@ -107,7 +106,9 @@ export class PhotographerPage extends BasePage {
     const basedir = `/assets/works/${this.name}`
     const media = new MediaFactory(data, basedir).mediaElement
     media.className = mediaClass
+    media.id = index
     media.addEventListener("click", () => {
+      this.lightBox.mediaIndex = parseInt(media.id)
       this.lightBox.openLightBox()
     })
     const anchor = document.createElement("a")
@@ -153,8 +154,10 @@ export class PhotographerPage extends BasePage {
   }
 
   getUserWorksDOM() {
+    let index = 0
     const cardArray = []
-    for (let media of this.medias) cardArray.push(this.getUserWorkCard(media))
+    for (let media of this.medias)
+      cardArray.push(this.getUserWorkCard(media, index++))
 
     return cardArray
   }
@@ -172,6 +175,6 @@ export class PhotographerPage extends BasePage {
   }
 
   setLightBox() {
-    this.lightBox.initElements()
+    LightBox.initElements(this.lightBox)
   }
 }

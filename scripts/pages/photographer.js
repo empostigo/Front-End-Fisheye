@@ -58,6 +58,7 @@ const waitForSortingMedias = (photographerPage) => {
     }
 
     photographerPage.medias = mediasArray
+    photographerPage.lightBox.mediaArray = mediasArray
     photographerPage.removeUserWorkCards(".works_display")
     photographerPageDisplay(photographerPage)
   })
