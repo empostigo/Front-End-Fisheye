@@ -10,4 +10,14 @@ export class VideoMedia {
 
     return media
   }
+
+  get lightBoxMedia() {
+    const media = document.createElement("video")
+    media.src = `${this.basedir}/${this.media.video}`
+
+    const controls = document.createAttribute("controls")
+    media.setAttributeNode(controls)
+
+    return media
+  }
 }

@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <header class="header">
+  <header id="header" class="header">
     <a href="index.html" class="header__anchor">
       <img src="assets/images/logo.png" alt="Fisheye Home page" class="header__logo">
     </a>
@@ -59,10 +59,9 @@
   </div>
   <div id="lightBox" class="lightbox">
     <div class="lightbox__container">
-      <p class="lightbox__previous">&lt;</p>
-      <video src="assets/works/Mimi Keel/Animals_Wild_Horses_in_the_mountains.mp4" class="lightbox__media"></video>
-      <p class="lightbox__next">&gt;</p>
-      <p class="lightbox__closing-cross">&#9747;</p>
+      <p id="previousMedia" class="lightbox__previous">&lt;</p>
+      <p id="nextMedia" class="lightbox__next">&gt;</p>
+      <p id="closeLightBox" class="lightbox__closing-cross">&#9747;</p>
     </div>
   </div>
   <script type="module" src="/scripts/pages/photographer.js"></script>

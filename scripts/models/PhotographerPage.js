@@ -1,6 +1,7 @@
 import { BasePage } from "./BasePage.js"
 import { MediaFactory } from "../factories/MediaFactory.js"
 import { ContactForm } from "../modals/ContactForm.js"
+import { LightBox } from "../modals/LightBox.js"
 
 export class PhotographerPage extends BasePage {
   constructor(photographer, medias) {
@@ -12,10 +13,12 @@ export class PhotographerPage extends BasePage {
       "closeModal",
       this.name
     )
+    this.lightBox = new LightBox(this.medias, photographer)
   }
 
   set medias(mediasArray) {
     this._medias = mediasArray
+    this.lightBox = new LightBox(this.medias)
   }
 
   get medias() {
@@ -104,6 +107,9 @@ export class PhotographerPage extends BasePage {
     const basedir = `/assets/works/${this.name}`
     const media = new MediaFactory(data, basedir).mediaElement
     media.className = mediaClass
+    media.addEventListener("click", () => {
+      this.lightBox.openLightBox()
+    })
     const anchor = document.createElement("a")
     anchor.className = anchorClass
     anchor.href = "#"
@@ -163,5 +169,9 @@ export class PhotographerPage extends BasePage {
 
   setModal() {
     ContactForm.initElements(this.contactForm)
+  }
+
+  setLightBox() {
+    this.lightBox.initElements()
   }
 }

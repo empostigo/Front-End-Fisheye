@@ -173,6 +173,7 @@ h2 {
 }
 
 .lightbox {
+  display: none;
   position: absolute;
   top: 0;
   right: 0;
@@ -209,6 +210,7 @@ h2 {
   font-size: 42px;
   font-weight: 900;
   color: #901c1c;
+  cursor: pointer;
 }
 .lightbox__media {
   position: absolute;

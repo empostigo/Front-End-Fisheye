@@ -65,5 +65,5 @@ const waitForSortingMedias = (photographerPage) => {
 
 photographerPageDisplay(photographerPage)
 photographerPage.setModal()
-
+photographerPage.setLightBox()
 waitForSortingMedias(photographerPage)

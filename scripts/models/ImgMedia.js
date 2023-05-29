@@ -10,4 +10,8 @@ export class ImgMedia {
 
     return media
   }
+
+  get lightBoxMedia() {
+    return this.mediaElement
+  }
 }
