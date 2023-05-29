@@ -37,10 +37,7 @@ export class LightBox {
     document.getElementById("header").style.display = "none"
     this.lightBox.style.display = "initial"
 
-    this.previousMedia.insertAdjacentElement(
-      "afterend",
-      this.createMediaDOM(this.photographer)
-    )
+    this.previousMedia.insertAdjacentElement("afterend", this.createMediaDOM())
   }
 
   closeLightBox() {
