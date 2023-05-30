@@ -44,6 +44,7 @@ export class LightBox {
     document.getElementById("main").style.display = "block"
     document.getElementById("header").style.display = "flex"
     this.lightBox.style.display = "none"
+    this.previousMedia.nextSibling.remove()
   }
 
   static initElements(lightBox) {
