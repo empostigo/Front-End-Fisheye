@@ -32,6 +32,10 @@ h2 {
   color: #901c1c;
 }
 
+.main {
+  margin: 0 -100px;
+}
+
 .photographers {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
