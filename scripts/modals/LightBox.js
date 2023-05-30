@@ -8,12 +8,6 @@ export class LightBox {
     this.previousMedia = document.getElementById("previousMedia")
     this.nextMedia = document.getElementById("nextMedia")
     this.closeLightBoxButton = document.getElementById("closeLightBox")
-    this.mediaIndex = 0
-    this.media = new MediaFactory(
-      this.mediaArray[this.mediaIndex],
-      `/assets/works/${this.photographer.name}`
-    ).lightBoxMedia
-    this.media.className = "lightbox__media"
   }
 
   set mediaArray(medias) {
@@ -24,20 +18,47 @@ export class LightBox {
     return this._mediaArray
   }
 
-  createMediaDOM() {
+  set mediaIndex(mediaIndex) {
+    if (mediaIndex === this.mediaArray.length) this._mediaIndex = 0
+    else if (mediaIndex < 0) this._mediaIndex = this.mediaArray.length - 1
+    else this._mediaIndex = mediaIndex
+  }
+
+  get mediaIndex() {
+    return this._mediaIndex
+  }
+
+  createMediaDOM(media) {
     const displayDiv = document.createElement("div")
     displayDiv.className = "lighbox__div"
-    displayDiv.append(this.media)
+    displayDiv.append(media)
 
     return displayDiv
+  }
+
+  newMediaDOM() {
+    const media = new MediaFactory(
+      this.mediaArray[this.mediaIndex],
+      `/assets/works/${this.photographer.name}`
+    ).lightBoxMedia
+    media.className = "lightbox__media"
+    this.previousMedia.insertAdjacentElement(
+      "afterend",
+      this.createMediaDOM(media)
+    )
+  }
+
+  removeMediaDOM() {
+    document
+      .getElementById("lightBoxContainer")
+      .removeChild(this.previousMedia.nextSibling)
   }
 
   openLightBox() {
     document.getElementById("main").style.display = "none"
     document.getElementById("header").style.display = "none"
+    this.newMediaDOM(this.mediaIndex)
     this.lightBox.style.display = "initial"
-
-    this.previousMedia.insertAdjacentElement("afterend", this.createMediaDOM())
   }
 
   closeLightBox() {
@@ -53,19 +74,15 @@ export class LightBox {
     })
 
     lightBox.nextMedia.addEventListener("click", () => {
+      lightBox.removeMediaDOM()
       lightBox.mediaIndex++
-      lightBox.media = new MediaFactory(
-        lightBox.mediaArray[lightBox.mediaIndex],
-        `/assets/works/${lightBox.photographer.name}`
-      ).lightBoxMedia
-      lightBox.media.className = "lightbox__media"
-      document
-        .getElementById("lightBoxContainer")
-        .removeChild(lightBox.previousMedia.nextSibling)
-      lightBox.previousMedia.insertAdjacentElement(
-        "afterend",
-        lightBox.createMediaDOM(lightBox.photographer)
-      )
+      lightBox.newMediaDOM()
+    })
+
+    lightBox.previousMedia.addEventListener("click", () => {
+      lightBox.removeMediaDOM()
+      lightBox.mediaIndex--
+      lightBox.newMediaDOM()
     })
   }
 }
