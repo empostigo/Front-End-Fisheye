@@ -59,6 +59,7 @@ export class PhotographerPage extends BasePage {
     const imageClass = `${parentClass}__portrait`
     const likesClass = `${parentClass}__likes`
     const heartClass = `${parentClass}__heart`
+    const likesWrapperClass = `${parentClass}__likes-wrapper`
     const dayPriceClass = `${parentClass}__day-price`
     const insertClass = `${parentClass}__insert`
 
@@ -101,7 +102,10 @@ export class PhotographerPage extends BasePage {
     heart.className = heartClass
     heart.src = "/assets/icons/black-heart.svg"
     heart.height = "20"
-    likes.append(heart)
+
+    const likesWrapper = document.createElement("div")
+    likesWrapper.className = likesWrapperClass
+    likesWrapper.append(likes, heart)
 
     const dayPrice = document.createElement("span")
     dayPrice.className = dayPriceClass
@@ -110,7 +114,7 @@ export class PhotographerPage extends BasePage {
     const insert = document.createElement("div")
     insert.className = insertClass
     insert.tabIndex = 0
-    insert.append(likes, dayPrice)
+    insert.append(likesWrapper, dayPrice)
 
     return { description, image, insert }
   }
@@ -166,17 +170,16 @@ export class PhotographerPage extends BasePage {
       const mediaNbLikes = document.querySelector(".photographer-header__likes")
       if (flag++ % 2 === 0) {
         nbLikes.textContent++
-        mediaNbLikes.textContent++
+        mediaNbLikes.textContent = `${++this.totalLikes}`
       } else {
         nbLikes.textContent--
-        mediaNbLikes.textContent--
+        mediaNbLikes.textContent = `${--this.totalLikes}`
       }
     })
 
     const likeDiv = document.createElement("div")
     likeDiv.className = likeDivClass
-    likeDiv.append(nbLikes)
-    likeDiv.append(likeIcon)
+    likeDiv.append(nbLikes, likeIcon)
 
     const description = document.createElement("div")
     description.className = descriptionClass

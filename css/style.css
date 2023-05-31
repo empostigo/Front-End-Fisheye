@@ -294,6 +294,14 @@ h2 {
   object-fit: cover;
   border-radius: 50%;
 }
+.photographer-header__likes-wrapper {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.photographer-header__likes {
+  width: 46px;
+}
 .photographer-header__insert {
   position: fixed;
   bottom: 0;

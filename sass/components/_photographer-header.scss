@@ -44,6 +44,16 @@
     border-radius: 50%;
   }
 
+  &__likes-wrapper {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  &__likes {
+    width: 46px;
+  }
+
   &__insert {
     position: fixed;
     bottom: 0;
