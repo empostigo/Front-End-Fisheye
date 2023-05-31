@@ -40,6 +40,7 @@ export class PhotographerPage extends BasePage {
     const pTagLineClass = `${parentClass}__tagline`
     const imageClass = `${parentClass}__portrait`
     const likesClass = `${parentClass}__likes`
+    const heartClass = `${parentClass}__heart`
     const dayPriceClass = `${parentClass}__day-price`
     const insertClass = `${parentClass}__insert`
 
@@ -60,13 +61,13 @@ export class PhotographerPage extends BasePage {
     const infos = document.createElement("div")
     infos.className = infosClass
     infos.tabIndex = 0
-    infos.appendChild(location)
-    infos.appendChild(pTagLine)
+    infos.append(location)
+    infos.append(pTagLine)
 
     const description = document.createElement("div")
     description.className = descriptionClass
-    description.appendChild(h1)
-    description.appendChild(infos)
+    description.append(h1)
+    description.append(infos)
 
     // displaying portrait
     const image = document.createElement("img")
@@ -76,7 +77,14 @@ export class PhotographerPage extends BasePage {
 
     const likes = document.createElement("span")
     likes.className = likesClass
-    likes.textContent = `${this.countLikes()} \u2665`
+    likes.textContent = `${this.countLikes()} `
+
+    const heart = document.createElement("img")
+    heart.className = heartClass
+    heart.src = "/assets/icons/black-heart.svg"
+    heart.height = "18"
+
+    likes.append(heart)
 
     const dayPrice = document.createElement("span")
     dayPrice.className = dayPriceClass
@@ -85,8 +93,7 @@ export class PhotographerPage extends BasePage {
     const insert = document.createElement("div")
     insert.className = insertClass
     insert.tabIndex = 0
-    insert.appendChild(likes)
-    insert.appendChild(dayPrice)
+    insert.append(likes, dayPrice)
 
     return { description, image, insert }
   }
@@ -118,7 +125,7 @@ export class PhotographerPage extends BasePage {
     anchorAriaLabel.value = `${data.title}, closeup view`
     anchor.tabIndex = 0
     anchor.setAttributeNode(anchorAriaLabel)
-    anchor.appendChild(media)
+    anchor.append(media)
 
     const h2 = document.createElement("h2")
     h2.className = h2Class
@@ -130,7 +137,7 @@ export class PhotographerPage extends BasePage {
     nbLikes.textContent = data.likes
     const likeIcon = document.createElement("img")
     likeIcon.className = likeIconClass
-    likeIcon.src = "/assets/icons/heart.svg"
+    likeIcon.src = "/assets/icons/red-heart.svg"
     likeIcon.height = "22"
     likeIcon.tabIndex = 0
     const likeIconAriaLabel = document.createAttribute("aria-label")
@@ -138,18 +145,18 @@ export class PhotographerPage extends BasePage {
     likeIcon.setAttributeNode(likeIconAriaLabel)
     const likeDiv = document.createElement("div")
     likeDiv.className = likeDivClass
-    likeDiv.appendChild(nbLikes)
-    likeDiv.appendChild(likeIcon)
+    likeDiv.append(nbLikes)
+    likeDiv.append(likeIcon)
 
     const description = document.createElement("div")
     description.className = descriptionClass
-    description.appendChild(h2)
-    description.appendChild(likeDiv)
+    description.append(h2)
+    description.append(likeDiv)
 
     const mediaCard = document.createElement("article")
     mediaCard.className = mediaCardClass
-    mediaCard.appendChild(anchor)
-    mediaCard.appendChild(description)
+    mediaCard.append(anchor)
+    mediaCard.append(description)
 
     return mediaCard
   }
