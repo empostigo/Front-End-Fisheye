@@ -348,6 +348,7 @@ h2 {
 }
 .mediaCard__likeIcon {
   font-style: normal;
+  cursor: pointer;
 }
 
 .contact_button {

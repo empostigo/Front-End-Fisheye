@@ -7,6 +7,8 @@ export class PhotographerPage extends BasePage {
   constructor(photographer, medias) {
     super(photographer)
     this.medias = medias
+    this.totalLikes = this.countLikes()
+    this.flag = 0
     this.contactForm = new ContactForm(
       "contactModal",
       "openModal",
@@ -24,10 +26,26 @@ export class PhotographerPage extends BasePage {
     return this._medias
   }
 
+  set flag(nb) {
+    this._flag = nb
+  }
+
+  get flag() {
+    return this._flag
+  }
+
   countLikes() {
     let count = 0
     for (let media of this.medias) count += media.likes
     return count
+  }
+
+  set totalLikes(nbLikes) {
+    this._totalLikes = nbLikes
+  }
+
+  get totalLikes() {
+    return this._totalLikes
   }
 
   getUserCardDOM = () => {
@@ -77,13 +95,12 @@ export class PhotographerPage extends BasePage {
 
     const likes = document.createElement("span")
     likes.className = likesClass
-    likes.textContent = `${this.countLikes()} `
+    likes.textContent = `${this.totalLikes} `
 
     const heart = document.createElement("img")
     heart.className = heartClass
     heart.src = "/assets/icons/black-heart.svg"
-    heart.height = "18"
-
+    heart.height = "20"
     likes.append(heart)
 
     const dayPrice = document.createElement("span")
@@ -143,6 +160,19 @@ export class PhotographerPage extends BasePage {
     const likeIconAriaLabel = document.createAttribute("aria-label")
     likeIconAriaLabel.value = "likes"
     likeIcon.setAttributeNode(likeIconAriaLabel)
+
+    let flag = 0
+    likeIcon.addEventListener("click", () => {
+      const mediaNbLikes = document.querySelector(".photographer-header__likes")
+      if (flag++ % 2 === 0) {
+        nbLikes.textContent++
+        mediaNbLikes.textContent++
+      } else {
+        nbLikes.textContent--
+        mediaNbLikes.textContent--
+      }
+    })
+
     const likeDiv = document.createElement("div")
     likeDiv.className = likeDivClass
     likeDiv.append(nbLikes)
@@ -155,8 +185,7 @@ export class PhotographerPage extends BasePage {
 
     const mediaCard = document.createElement("article")
     mediaCard.className = mediaCardClass
-    mediaCard.append(anchor)
-    mediaCard.append(description)
+    mediaCard.append(anchor, description)
 
     return mediaCard
   }
