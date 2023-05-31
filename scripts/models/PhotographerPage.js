@@ -128,9 +128,10 @@ export class PhotographerPage extends BasePage {
     const nbLikes = document.createElement("span")
     nbLikes.className = nbLikesClass
     nbLikes.textContent = data.likes
-    const likeIcon = document.createElement("i")
+    const likeIcon = document.createElement("img")
     likeIcon.className = likeIconClass
-    likeIcon.textContent = "\u2665"
+    likeIcon.src = "/assets/icons/heart.svg"
+    likeIcon.height = "22"
     likeIcon.tabIndex = 0
     const likeIconAriaLabel = document.createAttribute("aria-label")
     likeIconAriaLabel.value = "likes"
