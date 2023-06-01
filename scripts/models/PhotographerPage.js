@@ -80,18 +80,19 @@ export class PhotographerPage extends BasePage {
     const infos = document.createElement("div")
     infos.className = infosClass
     infos.tabIndex = 0
-    infos.append(location)
-    infos.append(pTagLine)
+    infos.append(location, pTagLine)
 
     const description = document.createElement("div")
     description.className = descriptionClass
-    description.append(h1)
-    description.append(infos)
+    description.append(h1, infos)
 
     // displaying portrait
     const image = document.createElement("img")
     image.className = imageClass
     image.setAttribute("src", this.picture)
+    const imageAriaLabel = document.createAttribute("aria-label")
+    imageAriaLabel.textContent = this.name
+    image.setAttributeNode(imageAriaLabel)
     image.tabIndex = 0
 
     const likes = document.createElement("span")
