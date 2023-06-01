@@ -102,6 +102,7 @@ export class PhotographerPage extends BasePage {
     const heart = document.createElement("img")
     heart.className = heartClass
     heart.src = "/assets/icons/black-heart.svg"
+    heart.alt = "Number of likes"
     heart.height = "20"
 
     const likesWrapper = document.createElement("div")
