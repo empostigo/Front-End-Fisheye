@@ -30,18 +30,29 @@ export class LightBox {
 
   createMediaDOM(media) {
     const displayDiv = document.createElement("div")
-    displayDiv.className = "lighbox__div"
-    displayDiv.append(media)
+    displayDiv.className = "lightbox__div"
+
+    const mediaTitle = document.createElement("p")
+    mediaTitle.className = "lightbox__title"
+    mediaTitle.textContent = this.mediaArray[this.mediaIndex].title
+
+    displayDiv.append(media, mediaTitle)
 
     return displayDiv
   }
 
   newMediaDOM() {
+    const mediaInfos = this.mediaArray[this.mediaIndex]
     const media = new MediaFactory(
-      this.mediaArray[this.mediaIndex],
+      mediaInfos,
       `/assets/works/${this.photographer.name}`
     ).lightBoxMedia
     media.className = "lightbox__media"
+
+    const mediaAriaLabel = document.createAttribute("aria-label")
+    mediaAriaLabel.textContent = mediaInfos.title
+    media.setAttributeNode(mediaAriaLabel)
+
     this.previousMedia.insertAdjacentElement(
       "afterend",
       this.createMediaDOM(media)
@@ -54,10 +65,22 @@ export class LightBox {
       .removeChild(this.previousMedia.nextSibling)
   }
 
+  waitingPreviousMedia() {
+    this.removeMediaDOM()
+    this.mediaIndex--
+    this.newMediaDOM()
+  }
+
+  waitingNextMedia() {
+    this.removeMediaDOM()
+    this.mediaIndex++
+    this.newMediaDOM()
+  }
+
   openLightBox() {
     document.getElementById("main").style.display = "none"
     document.getElementById("header").style.display = "none"
-    this.newMediaDOM(this.mediaIndex)
+    this.newMediaDOM()
     this.lightBox.style.display = "initial"
   }
 
@@ -74,15 +97,11 @@ export class LightBox {
     })
 
     lightBox.nextMedia.addEventListener("click", () => {
-      lightBox.removeMediaDOM()
-      lightBox.mediaIndex++
-      lightBox.newMediaDOM()
+      lightBox.waitingNextMedia()
     })
 
     lightBox.previousMedia.addEventListener("click", () => {
-      lightBox.removeMediaDOM()
-      lightBox.mediaIndex--
-      lightBox.newMediaDOM()
+      lightBox.waitingPreviousMedia()
     })
   }
 }
