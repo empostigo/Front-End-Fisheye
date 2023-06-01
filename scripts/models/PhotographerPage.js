@@ -69,7 +69,7 @@ export class PhotographerPage extends BasePage {
     h1.textContent = this.name
     h1.tabIndex = 0
 
-    const location = document.createElement("p")
+    const location = document.createElement("h2")
     location.className = locationClass
     location.textContent = this.place
 
@@ -133,12 +133,16 @@ export class PhotographerPage extends BasePage {
     // card component
     const basedir = `/assets/works/${this.name}`
     const media = new MediaFactory(data, basedir).mediaElement
-    media.className = mediaClass
     media.id = index
+    media.className = mediaClass
+    const mediaAriaLabel = document.createAttribute("aria-label")
+    mediaAriaLabel.value = this.photographer.title
+    media.setAttributeNode(mediaAriaLabel)
     media.addEventListener("click", () => {
       this.lightBox.mediaIndex = parseInt(media.id)
       this.lightBox.openLightBox()
     })
+
     const anchor = document.createElement("a")
     anchor.className = anchorClass
     anchor.href = "#"
