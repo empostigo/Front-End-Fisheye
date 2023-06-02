@@ -65,13 +65,13 @@ export class LightBox {
       .removeChild(this.previousMedia.nextSibling)
   }
 
-  waitingPreviousMedia() {
+  displayPreviousMedia() {
     this.removeMediaDOM()
     this.mediaIndex--
     this.newMediaDOM()
   }
 
-  waitingNextMedia() {
+  displayNextMedia() {
     this.removeMediaDOM()
     this.mediaIndex++
     this.newMediaDOM()
@@ -81,6 +81,7 @@ export class LightBox {
     document.getElementById("main").style.display = "none"
     document.getElementById("header").style.display = "none"
     this.newMediaDOM()
+
     this.lightBox.style.display = "initial"
   }
 
@@ -92,16 +93,25 @@ export class LightBox {
   }
 
   static initElements(lightBox) {
-    lightBox.closeLightBoxButton.addEventListener("click", () => {
-      lightBox.closeLightBox()
-    })
+    const waitingForArrowkey = (event) => {
+      console.log(event.key)
+      if (event.key === "ArrowLeft") lightBox.displayPreviousMedia()
+      if (event.key === "ArrowRight") lightBox.displayNextMedia()
+    }
+
+    document.addEventListener("keydown", waitingForArrowkey)
 
     lightBox.nextMedia.addEventListener("click", () => {
-      lightBox.waitingNextMedia()
+      lightBox.displayNextMedia()
     })
 
     lightBox.previousMedia.addEventListener("click", () => {
-      lightBox.waitingPreviousMedia()
+      lightBox.displayPreviousMedia()
+    })
+
+    lightBox.closeLightBoxButton.addEventListener("click", () => {
+      lightBox.closeLightBox()
+      document.removeEventListener("keydown", waitingForArrowkey)
     })
   }
 }
