@@ -7,6 +7,7 @@ export class ImgMedia {
   get mediaElement() {
     const media = document.createElement("img")
     media.src = `${this.basedir}/${this.media.image}`
+    media.alt = this.media.title
 
     return media
   }

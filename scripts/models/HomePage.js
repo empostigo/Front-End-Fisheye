@@ -28,7 +28,8 @@ export class HomePage extends BasePage {
 
     const image = document.createElement("img")
     image.className = imageClass
-    image.setAttribute("src", this.picture)
+    image.src = this.picture
+    image.alt = this.name
 
     const h2 = document.createElement("h2")
     h2.className = h2Class

@@ -89,7 +89,8 @@ export class PhotographerPage extends BasePage {
     // displaying portrait
     const image = document.createElement("img")
     image.className = imageClass
-    image.setAttribute("src", this.picture)
+    image.src = this.picture
+    image.alt = this.name
     const imageAriaLabel = document.createAttribute("aria-label")
     imageAriaLabel.textContent = this.name
     image.setAttributeNode(imageAriaLabel)
