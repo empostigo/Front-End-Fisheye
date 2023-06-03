@@ -34,8 +34,7 @@ export class HomePage extends BasePage {
     h2.className = h2Class
     h2.textContent = this.name
 
-    anchor.appendChild(image)
-    anchor.appendChild(h2)
+    anchor.append(image, h2)
 
     // Description
     const description = document.createElement("div")
@@ -54,16 +53,13 @@ export class HomePage extends BasePage {
     pCost.className = costClass
     pCost.textContent = this.cost
 
-    description.appendChild(location)
-    description.appendChild(pTagLine)
-    description.appendChild(pCost)
+    description.append(location, pTagLine, pCost)
 
     // Article component
     const article = document.createElement("article")
     article.className = articleClass
 
-    article.appendChild(anchor)
-    article.appendChild(description)
+    article.append(anchor, description)
 
     return article
   }
