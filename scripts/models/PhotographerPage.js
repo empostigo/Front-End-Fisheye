@@ -219,8 +219,4 @@ export class PhotographerPage extends BasePage {
   setModal() {
     ContactForm.initElements(this.contactForm)
   }
-
-  setLightBox() {
-    LightBox.initElements(this.lightBox)
-  }
 }

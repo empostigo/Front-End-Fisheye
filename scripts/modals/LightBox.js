@@ -83,6 +83,7 @@ export class LightBox {
     this.newMediaDOM()
 
     this.lightBox.style.display = "initial"
+    LightBox.initElements(this)
   }
 
   closeLightBox() {
