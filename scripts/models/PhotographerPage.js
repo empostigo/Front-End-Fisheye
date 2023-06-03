@@ -154,6 +154,12 @@ export class PhotographerPage extends BasePage {
     anchor.tabIndex = 0
     anchor.setAttributeNode(anchorAriaLabel)
     anchor.append(media)
+    anchor.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        this.lightBox.mediaIndex = parseInt(media.id)
+        this.lightBox.openLightBox()
+      }
+    })
 
     const h2 = document.createElement("h2")
     h2.className = h2Class

@@ -35,6 +35,7 @@ export class LightBox {
     const mediaTitle = document.createElement("p")
     mediaTitle.className = "lightbox__title"
     mediaTitle.textContent = this.mediaArray[this.mediaIndex].title
+    mediaTitle.tabIndex = 0
 
     displayDiv.append(media, mediaTitle)
 
@@ -48,6 +49,7 @@ export class LightBox {
       `/assets/works/${this.photographer.name}`
     ).lightBoxMedia
     media.className = "lightbox__media"
+    media.tabIndex = 0
 
     const mediaAriaLabel = document.createAttribute("aria-label")
     mediaAriaLabel.textContent = mediaInfos.title
@@ -83,6 +85,7 @@ export class LightBox {
     this.newMediaDOM()
 
     this.lightBox.style.display = "initial"
+    this.lightBox.focus()
     LightBox.initElements(this)
   }
 
@@ -113,6 +116,13 @@ export class LightBox {
     lightBox.closeLightBoxButton.addEventListener("click", () => {
       lightBox.closeLightBox()
       document.removeEventListener("keydown", waitingForArrowkey)
+    })
+
+    lightBox.closeLightBoxButton.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        lightBox.closeLightBox()
+        document.removeEventListener("keydown", waitingForArrowkey)
+      }
     })
   }
 }
