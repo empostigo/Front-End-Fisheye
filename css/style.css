@@ -138,6 +138,9 @@ h2 {
   font-weight: normal;
 }
 .modal__close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
   margin-top: 20px;
   cursor: pointer;
 }

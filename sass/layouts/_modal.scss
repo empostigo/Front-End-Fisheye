@@ -33,6 +33,9 @@
     font-weight: normal;
   }
   &__close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
     margin-top: 20px;
     cursor: pointer;
   }
