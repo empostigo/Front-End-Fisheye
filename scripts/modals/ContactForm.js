@@ -52,6 +52,10 @@ export class ContactForm {
       modal.modal.style.display = "none"
     })
 
+    modal.closeElement.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") modal.modal.style.display = "none"
+    })
+
     modal.modalForm.addEventListener("submit", (event) => {
       event.preventDefault()
       modal.inputElements.forEach((element) => {
@@ -60,6 +64,10 @@ export class ContactForm {
       })
 
       modal.modal.style.display = "none"
+    })
+
+    modal.modal.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") modal.modal.style.display = "none"
     })
 
     modal.setAccessibility()
