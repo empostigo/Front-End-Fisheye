@@ -57,6 +57,10 @@ const waitForSortingMedias = (photographerPage) => {
         break
     }
 
+    selectElement.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") this.blur()
+    })
+
     photographerPage.medias = mediasArray
     photographerPage.lightBox.mediaArray = mediasArray
     photographerPage.removeUserWorkCards(".works_display")
