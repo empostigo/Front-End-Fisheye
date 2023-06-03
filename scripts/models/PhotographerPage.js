@@ -151,7 +151,7 @@ export class PhotographerPage extends BasePage {
     anchor.href = "#"
     const anchorAriaLabel = document.createAttribute("aria-label")
     anchorAriaLabel.value = `${data.title}, closeup view`
-    anchor.tabIndex = 0
+    anchor.tabIndex = -1
     anchor.setAttributeNode(anchorAriaLabel)
     anchor.append(media)
     anchor.addEventListener("keydown", (event) => {

@@ -7,7 +7,6 @@ export class VideoMedia {
   get mediaElement() {
     const media = document.createElement("video")
     media.src = `${this.basedir}/${this.media.video}`
-    media.tabIndex = -1
 
     return media
   }
@@ -18,7 +17,6 @@ export class VideoMedia {
 
     const controls = document.createAttribute("controls")
     media.setAttributeNode(controls)
-    media.tabIndex = -1
 
     return media
   }

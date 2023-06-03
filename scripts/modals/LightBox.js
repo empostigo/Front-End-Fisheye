@@ -62,9 +62,8 @@ export class LightBox {
   }
 
   removeMediaDOM() {
-    document
-      .getElementById("lightBoxContainer")
-      .removeChild(this.previousMedia.nextSibling)
+    const divToRemove = document.querySelector(".lightbox__div")
+    if (divToRemove) divToRemove.remove()
   }
 
   displayPreviousMedia() {
@@ -85,15 +84,18 @@ export class LightBox {
     this.newMediaDOM()
 
     this.lightBox.style.display = "initial"
-    this.lightBox.focus()
+
     LightBox.initElements(this)
   }
 
   closeLightBox() {
     document.getElementById("main").style.display = "block"
     document.getElementById("header").style.display = "flex"
+    this.removeMediaDOM()
+
+    document.getElementById(this.mediaIndex.toString()).focus()
+
     this.lightBox.style.display = "none"
-    this.previousMedia.nextSibling.remove()
   }
 
   static initElements(lightBox) {
@@ -120,6 +122,13 @@ export class LightBox {
 
     lightBox.closeLightBoxButton.addEventListener("keydown", (event) => {
       if (event.key === "Enter") {
+        lightBox.closeLightBox()
+        document.removeEventListener("keydown", waitingForArrowkey)
+      }
+    })
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
         lightBox.closeLightBox()
         document.removeEventListener("keydown", waitingForArrowkey)
       }
