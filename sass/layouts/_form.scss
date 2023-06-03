@@ -24,12 +24,21 @@
     border: none;
     border-radius: 5px;
     font-size: 36px;
+
+    &::placeholder {
+      opacity: 0.3;
+    }
   }
+
   &__message {
     width: 100%;
     height: 170px;
     border: none;
     border-radius: 5px;
     font-size: 36px;
+
+    &::placeholder {
+      opacity: 0.3;
+    }
   }
 }
