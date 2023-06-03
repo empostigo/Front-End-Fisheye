@@ -91,7 +91,7 @@ h2 {
   padding: 16px 20px;
 }
 .sorting__option:checked {
-  box-shadow: 0 0 10px 100px #901c1c inset;
+  box-shadow: 0 0 10px 100px #d3573c inset;
 }
 .sorting__option--no-border {
   border: none;
@@ -336,12 +336,13 @@ h2 {
 }
 .mediaCard__anchor {
   height: 88%;
+  border-radius: 5px;
+  overflow: hidden;
 }
 .mediaCard__media {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 5px;
 }
 .mediaCard__description {
   display: flex;

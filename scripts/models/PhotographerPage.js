@@ -138,7 +138,7 @@ export class PhotographerPage extends BasePage {
     media.id = index
     media.className = mediaClass
     const mediaAriaLabel = document.createAttribute("aria-label")
-    mediaAriaLabel.value = this.photographer.title
+    mediaAriaLabel.value = data.title
     media.setAttributeNode(mediaAriaLabel)
     media.addEventListener("click", () => {
       this.lightBox.mediaIndex = parseInt(media.id)
