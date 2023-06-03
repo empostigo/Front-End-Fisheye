@@ -25,14 +25,14 @@
   &__title {
     margin: 0;
     font-size: 24px;
-    color: #901c1c;
+    color: $fg-secondary-color;
   }
 
   &__likeDiv {
     display: flex;
     align-items: center;
     column-gap: 6px;
-    color: #901c1c;
+    color: $fg-secondary-color;
   }
 
   &__nbLikes {

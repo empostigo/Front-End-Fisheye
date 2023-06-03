@@ -13,7 +13,7 @@
   }
 
   &__heading {
-    color: $photographer-name;
+    color: $fg-primary-color;
     font-size: 36px;
     text-align: center;
   }
@@ -26,7 +26,7 @@
 
   &__location {
     font-size: 13px;
-    color: $primary-color;
+    color: $bg-primary-color;
   }
 
   &__tagline {

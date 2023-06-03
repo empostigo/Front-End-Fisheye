@@ -32,7 +32,7 @@
     font-size: 18px;
     color: white;
     width: 170px;
-    background-color: #901c1c;
+    background-color: $bg-primary-color;
     border: none;
     border-radius: 5px;
     appearance: none;
@@ -46,7 +46,7 @@
   }
 
   &__option {
-    background-color: #901c1c;
+    background-color: $bg-primary-color;
     border-top: solid 1px white;
     border-image: linear-gradient(
         to right,
@@ -59,7 +59,7 @@
     padding: 16px 20px;
 
     &:checked {
-      box-shadow: 0 0 10px 100px #901c1c inset;
+      box-shadow: 0 0 10px 100px $bg-primary-color inset;
     }
 
     &--no-border {

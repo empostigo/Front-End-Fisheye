@@ -5,12 +5,13 @@
   width: 170px;
   height: 70px;
   border: none;
-  background-color: #901c1c;
+  background-color: $bg-primary-color;
   border-radius: 5px;
   cursor: pointer;
 
   &:hover,
   &:focus {
-    background-color: #d3573c;
+    background-color: $bg-secondary-color;
+    color: $neutral-color;
   }
 }

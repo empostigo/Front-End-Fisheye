@@ -382,6 +382,7 @@ h2 {
 }
 .modal-button:hover, .modal-button:focus {
   background-color: #d3573c;
+  color: #000000;
 }
 
 /*# sourceMappingURL=style.css.map */

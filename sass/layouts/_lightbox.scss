@@ -18,7 +18,7 @@
     position: relative;
     top: calc(40vh - 30px);
     left: -54px;
-    color: #901c1c;
+    color: $fg-secondary-color;
     cursor: pointer;
   }
 
@@ -26,7 +26,7 @@
     position: absolute;
     top: calc(40vh - 30px);
     right: -54px;
-    color: #901c1c;
+    color: $fg-secondary-color;
     cursor: pointer;
   }
 
@@ -34,7 +34,7 @@
     position: absolute;
     top: 0;
     right: -54px;
-    color: #901c1c;
+    color: $fg-secondary-color;
     cursor: pointer;
   }
 
@@ -54,6 +54,6 @@
 
   &__title {
     font-size: 24px;
-    color: #901c1c;
+    color: $fg-secondary-color;
   }
 }
