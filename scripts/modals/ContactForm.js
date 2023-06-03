@@ -44,6 +44,8 @@ export class ContactForm {
   static initElements(modal) {
     modal.openElement.addEventListener("click", () => {
       modal.modal.style.display = "block"
+      const contactModal = document.getElementById("contactModal")
+      contactModal.focus()
     })
 
     modal.closeElement.addEventListener("click", () => {
