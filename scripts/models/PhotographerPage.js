@@ -165,6 +165,7 @@ export class PhotographerPage extends BasePage {
     const likeIcon = document.createElement("img")
     likeIcon.className = likeIconClass
     likeIcon.src = "/assets/icons/red-heart.svg"
+    likeIcon.alt = "Like"
     likeIcon.height = "22"
     likeIcon.tabIndex = 0
     const likeIconAriaLabel = document.createAttribute("aria-label")
