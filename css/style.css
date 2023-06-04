@@ -78,7 +78,7 @@ h2 {
   border-radius: 5px;
   appearance: none;
   padding: 16px 20px;
-  overflow: hidden;
+  overflow: hidden; /* Chrome : disable scrollbar */
   cursor: pointer;
 }
 .sorting__select:focus {
@@ -339,6 +339,7 @@ h2 {
   height: 80%;
   border-radius: 5px;
   object-fit: cover;
+  cursor: pointer;
 }
 .mediaCard__description {
   display: flex;

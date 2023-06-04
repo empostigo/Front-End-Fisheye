@@ -37,7 +37,7 @@
     border-radius: 5px;
     appearance: none;
     padding: 16px 20px;
-    overflow: hidden;
+    overflow: hidden; /* Chrome : disable scrollbar */
     cursor: pointer;
 
     &:focus {
