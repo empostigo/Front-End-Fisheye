@@ -14,7 +14,7 @@ for (let media of works)
   if (Object.values(media).includes(photographerId)) mediasArray.push(media)
 // sort medias by popularity, descending order
 mediasArray.sort((a, b) => {
-  return a.likes < b.likes
+  return a.likes < b.likes ? 1 : -1
 })
 
 const photographer = photographers.filter((element) =>
@@ -36,35 +36,35 @@ const photographerPageDisplay = (photographerPage) => {
 
 const waitForSortingMedias = (photographerPage) => {
   const selectElement = document.getElementById("categories")
-  selectElement.addEventListener("change", function () {
-    switch (this.value) {
+  function sortMedia(selectElement) {
+    switch (selectElement.value) {
       case "popularité":
         mediasArray.sort((a, b) => {
-          return a.likes < b.likes
+          return a.likes < b.likes ? 1 : -1
         })
         break
 
       case "date":
         mediasArray.sort((a, b) => {
-          return a.date < b.date
+          return a.date < b.date ? 1 : -1
         })
         break
 
       case "titre":
         mediasArray.sort((a, b) => {
-          return a.title > b.title
+          return a.title > b.title ? 1 : -1
         })
         break
     }
-
-    selectElement.addEventListener("keydown", (event) => {
-      if (event.key === "Enter") this.blur()
-    })
 
     photographerPage.medias = mediasArray
     photographerPage.lightBox.mediaArray = mediasArray
     photographerPage.removeUserWorkCards(".works_display")
     photographerPageDisplay(photographerPage)
+  }
+
+  selectElement.addEventListener("change", () => {
+    sortMedia(selectElement)
   })
 }
 
