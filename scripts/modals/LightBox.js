@@ -100,7 +100,6 @@ export class LightBox {
 
   static initElements(lightBox) {
     const waitingForArrowkey = (event) => {
-      console.log(event.key)
       if (event.key === "ArrowLeft") lightBox.displayPreviousMedia()
       if (event.key === "ArrowRight") lightBox.displayNextMedia()
     }
