@@ -139,22 +139,13 @@ export class PhotographerPage extends BasePage {
     media.id = index
     media.className = mediaClass
     const mediaAriaLabel = document.createAttribute("aria-label")
-    mediaAriaLabel.value = data.title
+    mediaAriaLabel.value = `${data.title}, closeup view`
     media.setAttributeNode(mediaAriaLabel)
     media.addEventListener("click", () => {
       this.lightBox.mediaIndex = parseInt(media.id)
       this.lightBox.openLightBox()
     })
-
-    const anchor = document.createElement("a")
-    anchor.className = anchorClass
-    anchor.href = "#"
-    const anchorAriaLabel = document.createAttribute("aria-label")
-    anchorAriaLabel.value = `${data.title}, closeup view`
-    anchor.tabIndex = -1
-    anchor.setAttributeNode(anchorAriaLabel)
-    anchor.append(media)
-    anchor.addEventListener("keydown", (event) => {
+    media.addEventListener("keydown", (event) => {
       if (event.key === "Enter") {
         this.lightBox.mediaIndex = parseInt(media.id)
         this.lightBox.openLightBox()
@@ -202,7 +193,7 @@ export class PhotographerPage extends BasePage {
 
     const mediaCard = document.createElement("article")
     mediaCard.className = mediaCardClass
-    mediaCard.append(anchor, description)
+    mediaCard.append(media, description)
 
     return mediaCard
   }
