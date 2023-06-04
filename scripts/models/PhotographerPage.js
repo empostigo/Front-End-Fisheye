@@ -171,8 +171,8 @@ export class PhotographerPage extends BasePage {
     likeIcon.setAttributeNode(likeIconAriaLabel)
 
     let flag = 0
-    likeIcon.addEventListener("click", () => {
-      const mediaNbLikes = document.querySelector(".photographer-header__likes")
+    const mediaNbLikes = document.querySelector(".photographer-header__likes")
+    const computeLikes = () => {
       if (flag++ % 2 === 0) {
         nbLikes.textContent++
         mediaNbLikes.textContent = `${++this.totalLikes}`
@@ -180,6 +180,14 @@ export class PhotographerPage extends BasePage {
         nbLikes.textContent--
         mediaNbLikes.textContent = `${--this.totalLikes}`
       }
+    }
+
+    likeIcon.addEventListener("click", () => {
+      computeLikes()
+    })
+
+    likeIcon.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") computeLikes()
     })
 
     const likeDiv = document.createElement("div")
