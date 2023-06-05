@@ -1,5 +1,5 @@
 export class FetchData {
-  constructor(url, data, maxAge = "1600") {
+  constructor(url, data, maxAge = "1800") {
     this.url = url
     this.data = data
     this.maxAge = maxAge
