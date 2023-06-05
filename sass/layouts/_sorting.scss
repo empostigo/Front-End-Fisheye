@@ -57,6 +57,9 @@
       )
       100% 1;
     padding: 16px 20px;
+    /* Chrome : avoid selection of video when option overflow on it */
+    position: relative;
+    z-index: 1;
 
     &:checked {
       box-shadow: 0 0 10px 100px $bg-secondary-color inset;

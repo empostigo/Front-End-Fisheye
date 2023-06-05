@@ -89,6 +89,9 @@ h2 {
   border-top: solid 1px white;
   border-image: linear-gradient(to right, transparent 5%, white 5%, white 95%, transparent 5%) 100% 1;
   padding: 16px 20px;
+  /* Chrome : avoid selection of video when option overflow on it */
+  position: relative;
+  z-index: 1;
 }
 .sorting__option:checked {
   box-shadow: 0 0 10px 100px #d3573c inset;

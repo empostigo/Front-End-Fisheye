@@ -8,9 +8,9 @@ export class PhotographerFactory {
     if (!this.pathname || this.pathname === "index.html")
       return new HomePage(data)
     // PhotographerPage (photographer.js) photographer type
-    else if (this.pathname === "photographer.html")
+    if (this.pathname === "photographer.html")
       return new PhotographerPage(data, otherData)
     // Unknown Page
-    else throw "Page inconnu"
+    throw "Page inconnu"
   }
 }

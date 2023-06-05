@@ -11,16 +11,15 @@ export class FetchData {
     return fetch(this.url, { headers: this.header })
       .then((response) => response.json())
       .then((response) => {
-        if (this.data === "photographers") {
-          return response.photographers
-        } else if (this.data === "media") {
-          return response.media
-        }
+        if (this.data === "photographers") return response.photographers
+        if (this.data === "media") return response.media
       })
-      .catch((err) => console.log("Erreur lors de la lecture des données", err))
+      .catch((err) =>
+        console.error("Erreur lors de la lecture des données", err)
+      )
   }
 
   async getData() {
-    return await this.get()
+    return this.get()
   }
 }

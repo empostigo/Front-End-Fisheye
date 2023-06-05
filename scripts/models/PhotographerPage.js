@@ -126,7 +126,6 @@ export class PhotographerPage extends BasePage {
     // class names
     const mediaCardClass = "mediaCard"
     const mediaClass = `${mediaCardClass}__media`
-    const anchorClass = `${mediaCardClass}__anchor`
     const h2Class = `${mediaCardClass}__title`
     const nbLikesClass = `${mediaCardClass}__nbLikes`
     const likeIconClass = `${mediaCardClass}__likeIcon`

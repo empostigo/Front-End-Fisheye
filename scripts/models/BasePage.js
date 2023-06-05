@@ -14,10 +14,12 @@ export class BasePage {
   get picture() {
     return `assets/photographers/${this.portrait}`
   }
+
   // concatenate city and country
   get place() {
     return `${this.city}, ${this.country}`
   }
+
   // create cost string with price
   get cost() {
     return `${this.price}€ / jour`

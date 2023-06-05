@@ -61,19 +61,19 @@ export class LightBox {
     )
   }
 
-  removeMediaDOM() {
+  static removeMediaDOM() {
     const divToRemove = document.querySelector(".lightbox__div")
     if (divToRemove) divToRemove.remove()
   }
 
   displayPreviousMedia() {
-    this.removeMediaDOM()
+    LightBox.removeMediaDOM()
     this.mediaIndex--
     this.newMediaDOM()
   }
 
   displayNextMedia() {
-    this.removeMediaDOM()
+    LightBox.removeMediaDOM()
     this.mediaIndex++
     this.newMediaDOM()
   }
@@ -91,7 +91,7 @@ export class LightBox {
   closeLightBox() {
     document.getElementById("main").style.display = "block"
     document.getElementById("header").style.display = "flex"
-    this.removeMediaDOM()
+    LightBox.removeMediaDOM()
 
     document.getElementById(this.mediaIndex.toString()).focus()
 
