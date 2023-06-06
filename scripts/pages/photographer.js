@@ -1,5 +1,6 @@
 import { FetchData } from "../Api/FetchData.js"
 import { PhotographerFactory } from "../factories/PhotographerFactory.js"
+import { PhotographerPage } from "../models/PhotographerPage.js"
 
 const url = "/data/photographers.json"
 const photographers = await new FetchData(url, "photographers").getData()
@@ -59,7 +60,7 @@ const waitForSortingMedias = (photographerPage) => {
 
     photographerPage.medias = mediasArray
     photographerPage.lightBox.mediaArray = mediasArray
-    photographerPage.removeUserWorkCards(".works_display")
+    PhotographerPage.removeUserWorkCards(".works_display")
     photographerPageDisplay(photographerPage)
   }
 

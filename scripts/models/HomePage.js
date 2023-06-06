@@ -17,7 +17,7 @@ export class HomePage extends BasePage {
     anchor.className = anchorClass
     anchor.tabIndex = 0
     // Building an url with the id of the photographer
-    const host = window.location.host
+    const { host } = window.location
     const pathname = "photographer.html"
     const photographerUrl = new URL(`http://${host}/${pathname}?id=${this.id}`)
     anchor.href = photographerUrl

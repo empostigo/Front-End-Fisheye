@@ -35,9 +35,15 @@ export class PhotographerPage extends BasePage {
   }
 
   countLikes() {
+    return this.medias
+      .map(({ likes }) => ({ likes }))
+      .reduce((total, current) => total + current.likes, 0)
+
+    /*
     let count = 0
-    for (let media of this.medias) count += media.likes
+    this.medias.forEach((media) => (count += media.likes))
     return count
+    */
   }
 
   set totalLikes(nbLikes) {
@@ -141,12 +147,12 @@ export class PhotographerPage extends BasePage {
     mediaAriaLabel.value = `${data.title}, agrandir l'image`
     media.setAttributeNode(mediaAriaLabel)
     media.addEventListener("click", () => {
-      this.lightBox.mediaIndex = parseInt(media.id)
+      this.lightBox.mediaIndex = parseInt(media.id, 10)
       this.lightBox.openLightBox()
     })
     media.addEventListener("keydown", (event) => {
       if (event.key === "Enter") {
-        this.lightBox.mediaIndex = parseInt(media.id)
+        this.lightBox.mediaIndex = parseInt(media.id, 10)
         this.lightBox.openLightBox()
       }
     })
@@ -207,14 +213,10 @@ export class PhotographerPage extends BasePage {
 
   getUserWorksDOM() {
     let index = 0
-    const cardArray = []
-    for (let media of this.medias)
-      cardArray.push(this.getUserWorkCard(media, index++))
-
-    return cardArray
+    return this.medias.map((media) => this.getUserWorkCard(media, index++))
   }
 
-  removeUserWorkCards(selector) {
+  static removeUserWorkCards(selector) {
     const workDisplay = document.querySelector(selector)
     const workDisplayCards = Array.from(workDisplay.children)
     workDisplayCards.forEach((element) => {
