@@ -1,10 +1,10 @@
 export class ContactForm {
-  constructor(modalElement, openElement, closeElement, photographer) {
-    this.modal = document.getElementById(modalElement)
-    this.openElement = document.getElementById(openElement)
-    this.closeElement = document.getElementById(closeElement)
+  constructor(photographer) {
+    this.modal = document.getElementById("contactModal")
+    this.openElement = document.getElementById("openModal")
+    this.closeElement = document.getElementById("closeModal")
     this.photographer = photographer
-    this.modalForm = this.modal.getElementsByTagName("FORM")[0]
+    this.modalForm = document.getElementById("modalForm")
     this.inputElements = Array.from(this.modalForm.elements).filter(
       (element) => element.tagName !== "BUTTON"
     )
@@ -41,19 +41,26 @@ export class ContactForm {
     )
   }
 
+  hideModal() {
+    this.modal.style.display = "none"
+  }
+
+  showModal() {
+    this.modal.style.display = "block"
+  }
+
   static initElements(modal) {
     modal.openElement.addEventListener("click", () => {
-      modal.modal.style.display = "block"
-      const contactModal = document.getElementById("contactModal")
-      contactModal.focus()
+      modal.showModal()
+      modal.modal.focus()
     })
 
     modal.closeElement.addEventListener("click", () => {
-      modal.modal.style.display = "none"
+      modal.hideModal()
     })
 
     modal.closeElement.addEventListener("keydown", (event) => {
-      if (event.key === "Enter") modal.modal.style.display = "none"
+      if (event.key === "Enter") modal.hideModal()
     })
 
     modal.modalForm.addEventListener("submit", (event) => {
@@ -63,11 +70,11 @@ export class ContactForm {
         element.value = ""
       })
 
-      modal.modal.style.display = "none"
+      modal.hideModal()
     })
 
     modal.modal.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") modal.modal.style.display = "none"
+      if (event.key === "Escape") modal.hideModal()
     })
 
     modal.setAccessibility()

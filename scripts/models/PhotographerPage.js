@@ -9,12 +9,7 @@ export class PhotographerPage extends BasePage {
     this.medias = medias
     this.totalLikes = this.countLikes()
     this.flag = 0
-    this.contactForm = new ContactForm(
-      "contactModal",
-      "openModal",
-      "closeModal",
-      this.name
-    )
+    this.contactForm = new ContactForm(this.name)
     this.lightBox = new LightBox(this.medias, photographer)
   }
 

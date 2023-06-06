@@ -11,6 +11,6 @@ export class PhotographerFactory {
     if (this.pathname === "photographer.html")
       return new PhotographerPage(data, otherData)
     // Unknown Page
-    throw "Page inconnu"
+    throw new Error("Page inconnu")
   }
 }

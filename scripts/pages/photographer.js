@@ -7,16 +7,14 @@ const photographers = await new FetchData(url, "photographers").getData()
 const works = await new FetchData(url, "media").getData()
 
 const pageUrl = new URL(document.location).searchParams
-const photographerId = parseInt(pageUrl.get("id"))
+const photographerId = parseInt(pageUrl.get("id"), 10)
 
 // get photographer works
 const mediasArray = []
 for (let media of works)
   if (Object.values(media).includes(photographerId)) mediasArray.push(media)
 // sort medias by popularity, descending order
-mediasArray.sort((a, b) => {
-  return a.likes < b.likes ? 1 : -1
-})
+mediasArray.sort((a, b) => (a.likes < b.likes ? 1 : -1))
 
 const photographer = photographers.filter((element) =>
   Object.values(element).includes(photographerId)
@@ -40,21 +38,18 @@ const waitForSortingMedias = (photographerPage) => {
   function sortMedia(selectElement) {
     switch (selectElement.value) {
       case "popularité":
-        mediasArray.sort((a, b) => {
-          return a.likes < b.likes ? 1 : -1
-        })
+        mediasArray.sort((a, b) => (a.likes < b.likes ? 1 : -1))
         break
 
       case "date":
-        mediasArray.sort((a, b) => {
-          return a.date < b.date ? 1 : -1
-        })
+        mediasArray.sort((a, b) => (a.date < b.date ? 1 : -1))
         break
 
       case "titre":
-        mediasArray.sort((a, b) => {
-          return a.title > b.title ? 1 : -1
-        })
+        mediasArray.sort((a, b) => (a.title > b.title ? 1 : -1))
+        break
+
+      default:
         break
     }
 
