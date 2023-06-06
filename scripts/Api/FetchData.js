@@ -10,10 +10,7 @@ export class FetchData {
   async get() {
     return fetch(this.url, { headers: this.header })
       .then((response) => response.json())
-      .then((response) => {
-        if (this.data === "photographers") return response.photographers
-        if (this.data === "media") return response.media
-      })
+      .then((data) => data[this.data])
       .catch((err) =>
         console.error("Erreur lors de la lecture des données", err)
       )
