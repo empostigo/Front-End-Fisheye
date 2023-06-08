@@ -104,7 +104,6 @@ h2 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   column-gap: 95px;
-  row-gap: 30px;
   margin: 60px 0;
 }
 
@@ -348,7 +347,6 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: start;
-  height: 12%;
 }
 .mediaCard__title {
   margin: 0;
@@ -360,6 +358,7 @@ h2 {
   align-items: center;
   column-gap: 6px;
   color: #901c1c;
+  padding-right: 4px;
 }
 .mediaCard__nbLikes {
   font-size: 24px;

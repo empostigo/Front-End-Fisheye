@@ -10,11 +10,9 @@ const pageUrl = new URL(document.location).searchParams
 const photographerId = parseInt(pageUrl.get("id"), 10)
 
 // get photographer works
-const mediasArray = []
-for (let media of works)
-  if (Object.values(media).includes(photographerId)) mediasArray.push(media)
-// sort medias by popularity, descending order
-mediasArray.sort((a, b) => (a.likes < b.likes ? 1 : -1))
+const mediasArray = works
+  .filter((media) => Object.values(media).includes(photographerId))
+  .sort((a, b) => (a.likes < b.likes ? 1 : -1))
 
 const photographer = photographers.filter((element) =>
   Object.values(element).includes(photographerId)
@@ -27,16 +25,16 @@ const { description, image, insert } = photographerPage.getUserCardDOM()
 parent.prepend(description)
 parent.append(image, insert)
 
-const photographerPageDisplay = (photographerPage) => {
+const photographerPageDisplay = (photographerWorks) => {
   const workDisplay = document.querySelector(".works_display")
-  const cardArray = photographerPage.getUserWorksDOM()
-  for (let card of cardArray) workDisplay.append(card)
+  const cardArray = photographerWorks.getUserWorksDOM()
+  cardArray.forEach((card) => workDisplay.append(card))
 }
 
-const waitForSortingMedias = (photographerPage) => {
+const waitForSortingMedias = () => {
   const selectElement = document.getElementById("categories")
-  function sortMedia(selectElement) {
-    switch (selectElement.value) {
+  function sortMedia(selectTag) {
+    switch (selectTag.value) {
       case "popularité":
         mediasArray.sort((a, b) => (a.likes < b.likes ? 1 : -1))
         break

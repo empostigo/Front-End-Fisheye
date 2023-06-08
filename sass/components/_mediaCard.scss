@@ -16,7 +16,6 @@
     display: flex;
     justify-content: space-between;
     align-items: start;
-    height: 12%;
   }
 
   &__title {
@@ -30,6 +29,7 @@
     align-items: center;
     column-gap: 6px;
     color: $fg-secondary-color;
+    padding-right: 4px;
   }
 
   &__nbLikes {

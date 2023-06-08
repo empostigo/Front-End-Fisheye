@@ -33,12 +33,6 @@ export class PhotographerPage extends BasePage {
     return this.medias
       .map(({ likes }) => ({ likes }))
       .reduce((total, current) => total + current.likes, 0)
-
-    /*
-    let count = 0
-    this.medias.forEach((media) => (count += media.likes))
-    return count
-    */
   }
 
   set totalLikes(nbLikes) {
