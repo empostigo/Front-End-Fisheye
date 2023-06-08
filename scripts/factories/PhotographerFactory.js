@@ -9,7 +9,7 @@ export class PhotographerFactory {
       return new HomePage(data)
     // PhotographerPage (photographer.js) photographer type
     if (this.pathname === "photographer.html")
-      return new PhotographerPage(data, otherData)
+      return new PhotographerPage(data, otherData) // PhotographerPage needs the media part of photographers.json
     // Unknown Page
     throw new Error("Page inconnu")
   }

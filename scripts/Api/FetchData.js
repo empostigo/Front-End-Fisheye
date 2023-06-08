@@ -2,7 +2,7 @@ export class FetchData {
   constructor(url, data, maxAge = "1800") {
     this.url = url
     this.data = data
-    this.maxAge = maxAge
+    this.maxAge = maxAge // maxAge defines the time for cache browser validity
     this.header = new Headers()
     this.header.append("Cache-Control", this.maxAge)
   }
