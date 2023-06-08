@@ -16,7 +16,7 @@
     "no-console": "off",
     "consistent-return": "warn",
     "import/extensions": ["error", "always"],
-    "no-constructor-return": "warn",
+    "no-constructor-return": "off",
     "no-underscore-dangle": "off" /* disable this rule for Factory Pattern*/,
     "no-plusplus": "off",
     "no-param-reassign": "warn"

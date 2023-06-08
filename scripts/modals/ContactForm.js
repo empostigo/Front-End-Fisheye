@@ -6,7 +6,7 @@ export class ContactForm {
     this.photographer = photographer
     this.modalForm = document.getElementById("modalForm")
     this.inputElements = Array.from(this.modalForm.elements).filter(
-      (element) => element.tagName !== "BUTTON"
+      (element) => element.tagName === "INPUT" || element.tagName === "TEXTAREA"
     )
   }
 
@@ -23,22 +23,6 @@ export class ContactForm {
     const closeElementAriaLabel = document.createAttribute("aria-label")
     closeElementAriaLabel.value = "Close Contact form"
     this.closeElement.setAttributeNode(closeElementAriaLabel)
-
-    const labels = []
-    this.inputElements.forEach((element) => labels.push(element.labels[0]))
-    const labelIds = ["FirstName", "LastName", "Email", "YourMessage"]
-    labels.map((element, counter) => (element.id = labelIds[counter]))
-
-    let tmpAria
-    const ariaLabelledByArray = []
-    labelIds.forEach((element) => {
-      tmpAria = document.createAttribute("aria-labelledby")
-      tmpAria.value = element
-      ariaLabelledByArray.push(tmpAria)
-    })
-    this.inputElements.forEach((element, counter) =>
-      element.setAttributeNode(ariaLabelledByArray[counter])
-    )
   }
 
   hideModal() {
@@ -67,9 +51,9 @@ export class ContactForm {
       event.preventDefault()
       modal.inputElements.forEach((element) => {
         console.log(element.value)
-        element.value = ""
       })
 
+      modal.modalForm.reset()
       modal.hideModal()
     })
 

@@ -1,0 +1,11 @@
+{
+  "configurations": [
+    {
+      "type": "chrome",
+      "name": "fisheye",
+      "request": "launch",
+      "url": "http://localhost:5500",
+      "webRoot": "${workspaceFolder}"
+    }
+  ]
+}
