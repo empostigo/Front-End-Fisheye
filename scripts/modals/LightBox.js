@@ -114,6 +114,18 @@ export class LightBox {
       lightBox.displayPreviousMedia()
     })
 
+    lightBox.nextMedia.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        lightBox.displayNextMedia()
+      }
+    })
+
+    lightBox.previousMedia.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        lightBox.displayPreviousMedia()
+      }
+    })
+
     lightBox.closeLightBoxButton.addEventListener("click", () => {
       lightBox.closeLightBox()
       document.removeEventListener("keydown", waitingForArrowkey)
