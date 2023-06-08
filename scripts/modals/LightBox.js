@@ -1,23 +1,17 @@
 import { MediaFactory } from "../factories/MediaFactory.js"
 
 export class LightBox {
-  constructor(mediaArray, photographer) {
+  constructor(mediaArray, photographerName) {
     this.mediaArray = mediaArray
-    this.photographer = photographer
+    this.photographerName = photographerName // basedir to phtotgrapher medias
     this.lightBox = document.getElementById("lightBox")
     this.previousMedia = document.getElementById("previousMedia")
     this.nextMedia = document.getElementById("nextMedia")
     this.closeLightBoxButton = document.getElementById("closeLightBox")
   }
 
-  set mediaArray(medias) {
-    this._mediaArray = medias
-  }
-
-  get mediaArray() {
-    return this._mediaArray
-  }
-
+  // Is set when creating media card, in PhotographerPage.js, line 139
+  // to position the lightbox on the media opened, using its numeric id
   set mediaIndex(mediaIndex) {
     if (mediaIndex === this.mediaArray.length) this._mediaIndex = 0
     else if (mediaIndex < 0) this._mediaIndex = this.mediaArray.length - 1
@@ -46,7 +40,7 @@ export class LightBox {
     const mediaInfos = this.mediaArray[this.mediaIndex]
     const media = new MediaFactory(
       mediaInfos,
-      `/assets/works/${this.photographer.name}`
+      `/assets/works/${this.photographerName}`
     ).lightBoxMedia
     media.className = "lightbox__media"
     media.tabIndex = 0

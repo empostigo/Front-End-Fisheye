@@ -10,7 +10,7 @@ export class PhotographerPage extends BasePage {
     this.totalLikes = this.countLikes()
     this.flag = 0
     this.contactForm = new ContactForm(this.name)
-    this.lightBox = new LightBox(this.medias, photographer)
+    this.lightBox = new LightBox(this.medias, photographer.name)
   }
 
   set medias(mediasArray) {
