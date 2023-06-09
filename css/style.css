@@ -345,7 +345,7 @@ h2 {
 }
 .sorting__icon {
   position: absolute;
-  top: calc(50% - 10px);
+  top: calc(50% - 9px);
   right: 18px;
   z-index: 2;
 }
@@ -358,7 +358,7 @@ h2 {
   font-size: 18px;
   text-align: left;
   width: 170px;
-  color: white;
+  color: #ffffff;
   background-color: #901c1c;
   border-radius: 5px;
   border: none;
