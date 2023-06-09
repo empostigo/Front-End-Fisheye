@@ -43,97 +43,6 @@ h2 {
   margin: 100px 0;
 }
 
-.sorting {
-  display: flex;
-  column-gap: 25px;
-  margin-top: 20px;
-}
-.sorting__label {
-  font-size: 18px;
-  font-weight: 700;
-  align-self: center;
-}
-.sorting__div {
-  position: relative;
-  height: 56px;
-  width: 170px;
-  /*
-  &::after {
-    content: url(/assets/icons/angle-down.svg);
-    position: absolute;
-    top: 0;
-    right: 18px;
-    width: 16px;
-  }
-
-  &:focus-within::after {
-    content: url(/assets/icons/angle-up.svg);
-  }
-  */
-}
-.sorting__icon {
-  position: absolute;
-  top: calc(50% - 10px);
-  right: 18px;
-  z-index: 2;
-}
-.sorting__icon--hidden {
-  display: none;
-}
-.sorting__select {
-  position: relative;
-  font-family: "DM Sans", sans-serif;
-  font-size: 18px;
-  text-align: left;
-  width: 170px;
-  color: white;
-  background-color: #901c1c;
-  border-radius: 5px;
-  border: none;
-  padding: 0;
-  overflow: hidden;
-  cursor: pointer;
-  /*
-      &::after {
-        content: url(/assets/icons/angle-down.svg);
-        position: absolute;
-        top: 0;
-        right: 18px;
-        width: 16px;
-      }
-
-      &:focus-within::after {
-        content: url(/assets/icons/angle-up.svg);
-      }
-  */
-}
-.sorting__select:focus {
-  padding: 0;
-}
-.sorting__categories {
-  padding: 0;
-  margin: 0;
-}
-.sorting__anchor {
-  color: #ffffff;
-}
-.sorting__option {
-  list-style: none;
-  background-color: #901c1c;
-  border-top: solid 1px white;
-  border-image: linear-gradient(to right, transparent 5%, white 5%, white 95%, transparent 5%) 100% 1;
-  padding: 16px 20px;
-  /* Chrome : avoid selection of video when option overflow on it */
-  position: relative;
-  z-index: 1;
-}
-.sorting__option:checked {
-  box-shadow: 0 0 10px 100px #d3573c inset;
-}
-.sorting__option--no-border {
-  border: none;
-}
-
 .works_display {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -417,6 +326,97 @@ h2 {
 .modal-button:hover, .modal-button:focus {
   background-color: #d3573c;
   color: #000000;
+}
+
+.sorting {
+  display: flex;
+  column-gap: 25px;
+  margin-top: 20px;
+}
+.sorting__label {
+  font-size: 18px;
+  font-weight: 700;
+  align-self: center;
+}
+.sorting__div {
+  position: relative;
+  height: 56px;
+  width: 170px;
+  /*
+  &::after {
+    content: url(/assets/icons/angle-down.svg);
+    position: absolute;
+    top: 0;
+    right: 18px;
+    width: 16px;
+  }
+
+  &:focus-within::after {
+    content: url(/assets/icons/angle-up.svg);
+  }
+  */
+}
+.sorting__icon {
+  position: absolute;
+  top: calc(50% - 10px);
+  right: 18px;
+  z-index: 2;
+}
+.sorting__icon--hidden {
+  display: none;
+}
+.sorting__select {
+  position: relative;
+  font-family: "DM Sans", sans-serif;
+  font-size: 18px;
+  text-align: left;
+  width: 170px;
+  color: white;
+  background-color: #901c1c;
+  border-radius: 5px;
+  border: none;
+  padding: 0;
+  overflow: hidden;
+  cursor: pointer;
+  /*
+      &::after {
+        content: url(/assets/icons/angle-down.svg);
+        position: absolute;
+        top: 0;
+        right: 18px;
+        width: 16px;
+      }
+
+      &:focus-within::after {
+        content: url(/assets/icons/angle-up.svg);
+      }
+  */
+}
+.sorting__select:focus {
+  padding: 0;
+}
+.sorting__categories {
+  padding: 0;
+  margin: 0;
+}
+.sorting__anchor {
+  color: #ffffff;
+}
+.sorting__option {
+  list-style: none;
+  background-color: #901c1c;
+  border-top: solid 1px white;
+  border-image: linear-gradient(to right, transparent 5%, white 5%, white 95%, transparent 5%) 100% 1;
+  padding: 16px 20px;
+  /* Chrome : avoid selection of video when option overflow on it */
+  position: relative;
+  z-index: 1;
+}
+.sorting__option:checked {
+  box-shadow: 0 0 10px 100px #d3573c inset;
+}
+.sorting__option--no-border {
+  border: none;
 }
 
 /*# sourceMappingURL=style.css.map */
