@@ -342,19 +342,6 @@ h2 {
   position: relative;
   height: 56px;
   width: 170px;
-  /*
-  &::after {
-    content: url(/assets/icons/angle-down.svg);
-    position: absolute;
-    top: 0;
-    right: 18px;
-    width: 16px;
-  }
-
-  &:focus-within::after {
-    content: url(/assets/icons/angle-up.svg);
-  }
-  */
 }
 .sorting__icon {
   position: absolute;
@@ -378,19 +365,6 @@ h2 {
   padding: 0;
   overflow: hidden;
   cursor: pointer;
-  /*
-      &::after {
-        content: url(/assets/icons/angle-down.svg);
-        position: absolute;
-        top: 0;
-        right: 18px;
-        width: 16px;
-      }
-
-      &:focus-within::after {
-        content: url(/assets/icons/angle-up.svg);
-      }
-  */
 }
 .sorting__select:focus {
   padding: 0;

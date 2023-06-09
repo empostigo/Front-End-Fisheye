@@ -13,19 +13,6 @@
     position: relative;
     height: 56px;
     width: 170px;
-    /*
-    &::after {
-      content: url(/assets/icons/angle-down.svg);
-      position: absolute;
-      top: 0;
-      right: 18px;
-      width: 16px;
-    }
-
-    &:focus-within::after {
-      content: url(/assets/icons/angle-up.svg);
-    }
-    */
   }
 
   &__icon {
@@ -56,19 +43,6 @@
     &:focus {
       padding: 0;
     }
-    /*
-    &::after {
-      content: url(/assets/icons/angle-down.svg);
-      position: absolute;
-      top: 0;
-      right: 18px;
-      width: 16px;
-    }
-
-    &:focus-within::after {
-      content: url(/assets/icons/angle-up.svg);
-    }
-*/
   }
 
   &__categories {
