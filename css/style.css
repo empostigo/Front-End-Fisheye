@@ -345,7 +345,7 @@ h2 {
 }
 .sorting__icon {
   position: absolute;
-  top: calc(50% - 9px);
+  top: calc(50% - 8px);
   right: 18px;
   z-index: 2;
 }
@@ -390,7 +390,7 @@ h2 {
   box-shadow: 0 0 10px 100px #d3573c inset;
 }
 .sorting__option--no-border {
-  border: none;
+  border: 1px solid transparent;
 }
 
 /*# sourceMappingURL=style.css.map */
