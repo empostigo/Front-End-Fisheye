@@ -22,13 +22,26 @@
     <section class="works">
       <div class="sorting">
         <label id="selectLabel" for="categories" class="sorting__label" tabindex="0">Trier par</label>
-        <div class="sorting__div"> <!-- for styling purpose -->
+        <div class="sorting__div">
+          <!--
           <select name="categories" id="categories" class="sorting__select" onfocus="this.size=3" onblur="this.size=1"
             onchange="this.size=3" aria-labelledby="selectLabel">
             <option class="sorting__option sorting__option--no-border" value="popularité">Popularité</option>
             <option class="sorting__option" value="date">Date</option>
             <option class="sorting__option" value="titre">Titre</option>
           </select>
+        -->
+          <img class="sorting__icon sorting__icon--hidden" src="/assets/icons/angle-down.svg" alt="" height="22px"
+            width="22px">
+          <img class="sorting__icon" src="/assets/icons/angle-up.svg" alt="" height="22px" width="22px">
+          <button class="sorting__select" href="#" aria-labelledby="selectLabel" role="button">
+            <ul class="sorting__categories">
+              <li class="sorting__option sorting__option--no-border"><a class="sorting__anchor" href="#">Popularité</a>
+              </li>
+              <li class="sorting__option"><a class="sorting__anchor" href="#">Date</a></li>
+              <li class="sorting__option"><a class="sorting__anchor" href="#">Titre</a></li>
+            </ul>
+          </button>
         </div>
       </div>
       <div class="works_display"></div>
