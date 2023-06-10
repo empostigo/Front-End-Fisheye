@@ -1,6 +1,6 @@
 import { FetchData } from "../Api/FetchData.js"
 import { PhotographerFactory } from "../factories/PhotographerFactory.js"
-import { PhotographerPage } from "../models/PhotographerPage.js"
+import { Sorting } from "../utils/sorting.js"
 
 const url = "/data/photographers.json"
 const photographers = await new FetchData(url, "photographers").getData()
@@ -32,6 +32,7 @@ const photographerPageDisplay = (photographerWorks) => {
 }
 
 const waitForSortingMedias = () => {
+  /*
   const selectElement = document.getElementById("categories")
   function sortMedia(selectTag) {
     switch (selectTag.value) {
@@ -60,6 +61,10 @@ const waitForSortingMedias = () => {
   selectElement.addEventListener("change", () => {
     sortMedia(selectElement)
   })
+  */
+  const sortingElement = document.getElementById("categories")
+  const sortingObject = new Sorting(sortingElement)
+  Sorting.dropDownList(sortingObject)
 }
 
 photographerPageDisplay(photographerPage)
