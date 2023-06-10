@@ -17,7 +17,7 @@
 
   &__icon {
     position: absolute;
-    top: calc(50% - 8px);
+    top: calc(50% - 9px);
     right: 18px;
     z-index: 2;
 
@@ -53,6 +53,11 @@
 
   &__anchor {
     color: $no-color;
+    pointer-events: none;
+
+    &:focus-visible {
+      outline: none;
+    }
   }
 
   &__option {
@@ -72,12 +77,16 @@
     position: relative;
     z-index: 1;
 
-    &:checked {
-      box-shadow: 0 0 10px 100px $bg-secondary-color inset;
+    &--no-border {
+      border: none;
     }
 
-    &--no-border {
-      border: 1px solid transparent;
+    &:focus-within {
+      background-color: $bg-secondary-color;
+    }
+
+    &--hidden {
+      display: none;
     }
   }
 }

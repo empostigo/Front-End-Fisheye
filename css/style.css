@@ -345,7 +345,7 @@ h2 {
 }
 .sorting__icon {
   position: absolute;
-  top: calc(50% - 8px);
+  top: calc(50% - 9px);
   right: 18px;
   z-index: 2;
 }
@@ -376,6 +376,10 @@ h2 {
 }
 .sorting__anchor {
   color: #ffffff;
+  pointer-events: none;
+}
+.sorting__anchor:focus-visible {
+  outline: none;
 }
 .sorting__option {
   list-style: none;
@@ -387,11 +391,14 @@ h2 {
   position: relative;
   z-index: 1;
 }
-.sorting__option:checked {
-  box-shadow: 0 0 10px 100px #d3573c inset;
-}
 .sorting__option--no-border {
-  border: 1px solid transparent;
+  border: none;
+}
+.sorting__option:focus-within {
+  background-color: #d3573c;
+}
+.sorting__option--hidden {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */

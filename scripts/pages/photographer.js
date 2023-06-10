@@ -1,6 +1,7 @@
 import { FetchData } from "../Api/FetchData.js"
 import { PhotographerFactory } from "../factories/PhotographerFactory.js"
-import { Sorting } from "../utils/sorting.js"
+import { PhotographerPage } from "../models/PhotographerPage.js"
+import { Sorting } from "../utils/Sorting.js"
 
 const url = "/data/photographers.json"
 const photographers = await new FetchData(url, "photographers").getData()
@@ -32,19 +33,19 @@ const photographerPageDisplay = (photographerWorks) => {
 }
 
 const waitForSortingMedias = () => {
-  /*
-  const selectElement = document.getElementById("categories")
-  function sortMedia(selectTag) {
-    switch (selectTag.value) {
-      case "popularité":
+  const optionElement = document.querySelector(".sorting__option--no-border")
+  function sortMedia(option) {
+    console.log(option.id)
+    switch (option.id) {
+      case "10":
         mediasArray.sort((a, b) => (a.likes < b.likes ? 1 : -1))
         break
 
-      case "date":
+      case "11":
         mediasArray.sort((a, b) => (a.date < b.date ? 1 : -1))
         break
 
-      case "titre":
+      case "12":
         mediasArray.sort((a, b) => (a.title > b.title ? 1 : -1))
         break
 
@@ -58,13 +59,12 @@ const waitForSortingMedias = () => {
     photographerPageDisplay(photographerPage)
   }
 
-  selectElement.addEventListener("change", () => {
-    sortMedia(selectElement)
+  optionElement.addEventListener("click", () => {
+    sortMedia(optionElement)
   })
-  */
   const sortingElement = document.getElementById("categories")
   const sortingObject = new Sorting(sortingElement)
-  Sorting.dropDownList(sortingObject)
+  Sorting.initElements(sortingObject)
 }
 
 photographerPageDisplay(photographerPage)
