@@ -61,18 +61,21 @@ export class Sorting {
       if (event.key === "Enter") event.preventDefault()
       if (event.key === "ArrowDown") {
         event.preventDefault()
-        if (++index < sortingObject.sortingOptions.length)
+        if (++index < sortingObject.sortingOptions.length) {
           sortingObject.displayOption(index)
-        sortingObject.sortingElement.dataset.indexNumber =
-          sortingObject.sortingOptions[index].id
+          sortingObject.sortingElement.dataset.indexNumber =
+            sortingObject.sortingOptions[index].id
+        }
         if (index === sortingObject.sortingOptions.length) index--
       }
 
       if (event.key === "ArrowUp") {
         event.preventDefault()
-        if (--index >= 0) sortingObject.displayOption(index)
-        sortingObject.sortingElement.dataset.indexNumber =
-          sortingObject.sortingOptions[index].id
+        if (--index >= 0) {
+          sortingObject.displayOption(index)
+          sortingObject.sortingElement.dataset.indexNumber =
+            sortingObject.sortingOptions[index].id
+        }
         if (index < 0) index = 0
       }
     })
