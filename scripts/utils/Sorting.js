@@ -52,6 +52,7 @@ export class Sorting {
     sortingObject.sortingOptions.forEach((element) =>
       element.addEventListener("click", () => {
         sortingObject.displayOption(element.id % 10)
+        sortingObject.sortingElement.dataset.indexNumber = element.id
       })
     )
 
@@ -62,12 +63,16 @@ export class Sorting {
         event.preventDefault()
         if (++index < sortingObject.sortingOptions.length)
           sortingObject.displayOption(index)
+        sortingObject.sortingElement.dataset.indexNumber =
+          sortingObject.sortingOptions[index].id
         if (index === sortingObject.sortingOptions.length) index--
       }
 
       if (event.key === "ArrowUp") {
         event.preventDefault()
         if (--index >= 0) sortingObject.displayOption(index)
+        sortingObject.sortingElement.dataset.indexNumber =
+          sortingObject.sortingOptions[index].id
         if (index < 0) index = 0
       }
     })

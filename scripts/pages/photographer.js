@@ -33,35 +33,37 @@ const photographerPageDisplay = (photographerWorks) => {
 }
 
 const waitForSortingMedias = () => {
-  const optionElement = document.querySelector(".sorting__option--no-border")
-  function sortMedia(option) {
-    console.log(option.id)
-    switch (option.id) {
-      case "10":
-        mediasArray.sort((a, b) => (a.likes < b.likes ? 1 : -1))
-        break
+  const selectElement = document.getElementById("categories")
+  const observer = new MutationObserver((options) => {
+    options.forEach((mutation) => {
+      if (mutation.type === "attributes") {
+        switch (selectElement.dataset.indexNumber) {
+          case "10":
+            mediasArray.sort((a, b) => (a.likes < b.likes ? 1 : -1))
+            break
 
-      case "11":
-        mediasArray.sort((a, b) => (a.date < b.date ? 1 : -1))
-        break
+          case "11":
+            mediasArray.sort((a, b) => (a.date < b.date ? 1 : -1))
+            break
 
-      case "12":
-        mediasArray.sort((a, b) => (a.title > b.title ? 1 : -1))
-        break
+          case "12":
+            mediasArray.sort((a, b) => (a.title > b.title ? 1 : -1))
+            break
 
-      default:
-        break
-    }
+          default:
+            break
+        }
 
-    photographerPage.medias = mediasArray
-    photographerPage.lightBox.mediaArray = mediasArray
-    PhotographerPage.removeUserWorkCards(".works_display")
-    photographerPageDisplay(photographerPage)
-  }
-
-  optionElement.addEventListener("click", () => {
-    sortMedia(optionElement)
+        photographerPage.medias = mediasArray
+        photographerPage.lightBox.mediaArray = mediasArray
+        PhotographerPage.removeUserWorkCards(".works_display")
+        photographerPageDisplay(photographerPage)
+      }
+    })
   })
+
+  observer.observe(selectElement, { attributes: true })
+
   const sortingElement = document.getElementById("categories")
   const sortingObject = new Sorting(sortingElement)
   Sorting.initElements(sortingObject)
