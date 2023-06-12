@@ -29,8 +29,6 @@
   &__select {
     position: relative;
     display: none;
-    font-family: $page-fonts;
-    font-size: 18px;
     text-align: left;
     width: 170px;
     height: 56px;
@@ -52,6 +50,7 @@
     top: 0;
     padding: 0;
     margin: 0;
+    font-size: 18px;
     color: $no-color;
     width: 100%;
 

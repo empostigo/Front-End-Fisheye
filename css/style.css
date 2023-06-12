@@ -365,8 +365,6 @@ h2 {
 .sorting__select {
   position: relative;
   display: none;
-  font-family: "DM Sans", sans-serif;
-  font-size: 18px;
   text-align: left;
   width: 170px;
   height: 56px;
@@ -386,6 +384,7 @@ h2 {
   top: 0;
   padding: 0;
   margin: 0;
+  font-size: 18px;
   color: #ffffff;
   width: 100%;
 }

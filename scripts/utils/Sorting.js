@@ -72,7 +72,6 @@ export class Sorting {
       })
     )
 
-    /*
     let index = 0
     sortingObject.sortingElement.addEventListener("keydown", (event) => {
       if (event.key === "Enter") event.preventDefault()
@@ -96,6 +95,5 @@ export class Sorting {
         if (index < 0) index = 0
       }
     })
-  */
   }
 }
