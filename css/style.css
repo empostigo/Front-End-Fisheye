@@ -333,16 +333,6 @@ h2 {
   display: flex;
   column-gap: 25px;
   margin-top: 20px;
-  /*
-  &__anchor {
-    color: $no-color;
-    pointer-events: none;
-
-    &:focus-visible {
-      outline: none;
-    }
-  }
-    */
 }
 .sorting__label {
   font-size: 18px;
