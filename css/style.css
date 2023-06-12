@@ -387,7 +387,7 @@ h2 {
   list-style: none;
   background-color: #901c1c;
   border-top: solid 1px white;
-  border-image: linear-gradient(to right, transparent 5%, white 5%, white 95%, transparent 5%) 100% 1;
+  border-image: linear-gradient(to right, transparent 5%, #ffffff 5%, #ffffff 95%, transparent 5%) 100% 1;
   height: 56px;
   padding: 16px 20px;
   cursor: pointer;

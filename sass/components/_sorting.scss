@@ -67,8 +67,8 @@
     border-image: linear-gradient(
         to right,
         transparent 5%,
-        white 5%,
-        white 95%,
+        $no-color 5%,
+        $no-color 95%,
         transparent 5%
       )
       100% 1;
