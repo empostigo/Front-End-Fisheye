@@ -23,17 +23,18 @@
       <div class="sorting">
         <label id="selectLabel" for="categories" class="sorting__label" tabindex="0">Trier par</label>
         <div class="sorting__div">
-          <img id="down" class="sorting__icon sorting__icon--hidden" src="/assets/icons/angle-down.svg"
-            alt="Ouvrir le trieur" height="22" width="22">
-          <img id="up" class="sorting__icon" src="/assets/icons/angle-up.svg" alt="Fermer le trieur" height="22"
+          <img id="down" class="sorting__icon" src="/assets/icons/angle-down.svg" alt="Ouvrir le trieur" height="22"
             width="22">
+          <img id="up" class="sorting__icon sorting__icon--hidden" src="/assets/icons/angle-up.svg"
+            alt="Fermer le trieur" height="22" width="22">
           <button id="categories" class="sorting__select" aria-labelledby="selectLabel" role="button"
             aria-haspopup="listbox" aria-expanded="false" data-index-number="10"></button>
-          <ul class="sorting__categories">
-            <li id="10" class="sorting__option sorting__option--top-border" role="listbox" role="listbox"
-              aria-labelledby="selectLabel">Popularité</li>
+          <ul class="sorting__categories sorting__categories--hidden">
+            <li id="10" class="sorting__option sorting__option--no-border sorting__option--top-border" role="listbox"
+              role="listbox" aria-labelledby="selectLabel">Popularité</li>
             <li id="11" class="sorting__option" role="listbox" role="listbox" aria-labelledby="selectLabel">Date</li>
-            <li id="12" class="sorting__option" role="listbox" role="listbox" aria-labelledby="selectLabel">Titre</li>
+            <li id="12" class="sorting__option sorting__option--radius-border" role="listbox" role="listbox"
+              aria-labelledby="selectLabel">Titre</li>
           </ul>
 
         </div>

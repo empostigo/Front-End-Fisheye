@@ -389,6 +389,9 @@ h2 {
   color: #ffffff;
   width: 100%;
 }
+.sorting__categories--hidden {
+  display: none;
+}
 .sorting__option {
   box-sizing: border-box;
   list-style: none;
@@ -402,8 +405,23 @@ h2 {
   position: relative;
   z-index: 1;
 }
-.sorting__option--top-border {
+.sorting__option--no-border {
   border: none;
+}
+.sorting__option--top-border {
+  border-top: 1px solid #901c1c;
+  border-radius: 5px 5px 0 0;
+}
+.sorting__option--bottom-border {
+  border-bottom: 1px solid #901c1c;
+  border-radius: 0 0 5px 5px;
+}
+.sorting__option--radius-border {
+  border-radius: 0 0 5px 5px;
+}
+.sorting__option--all-border {
+  border: 1px solid #901c1c;
+  border-radius: 5px;
 }
 .sorting__option:focus-within {
   background-color: #d3573c;
