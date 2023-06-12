@@ -25,11 +25,11 @@ export class Sorting {
     this.closeDropDown()
     this.sortingOptions.forEach((element) => {
       element.classList.add("sorting__option--hidden")
-      element.classList.remove("sorting__option--no-border")
+      element.classList.remove("sorting__option--top-border")
       element.setAttribute("aria-selected", false)
     })
     this.sortingOptions[index].classList.remove("sorting__option--hidden")
-    this.sortingOptions[index].classList.add("sorting__option--no-border")
+    this.sortingOptions[index].classList.add("sorting__option--top-border")
     this.sortingOptions[index].setAttribute("aria-selected", true)
   }
 
@@ -37,9 +37,9 @@ export class Sorting {
     this.openDropDown()
     this.sortingOptions.forEach((element) => {
       element.classList.remove("sorting__option--hidden")
-      element.classList.remove("sorting__option--no-border")
+      element.classList.remove("sorting__option--top-border")
     })
-    this.sortingOptions[0].classList.add("sorting__option--no-border")
+    this.sortingOptions[0].classList.add("sorting__option--top-border")
   }
 
   static initElements(sortingObject) {

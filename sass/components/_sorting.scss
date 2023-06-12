@@ -33,13 +33,14 @@
     font-size: 18px;
     text-align: left;
     width: 170px;
+    height: 56px;
     color: $no-color;
-    background-color: $bg-primary-color;
-    border-radius: 5px;
+    background-color: transparent;
     border: none;
     padding: 0;
     overflow: hidden;
     cursor: pointer;
+    z-index: 2;
 
     &:focus {
       padding: 0;
@@ -47,8 +48,12 @@
   }
 
   &__categories {
+    position: absolute;
+    top: 0;
     padding: 0;
     margin: 0;
+    color: $no-color;
+    width: 100%;
   }
 
   /*
@@ -63,6 +68,7 @@
     */
 
   &__option {
+    box-sizing: border-box;
     list-style: none;
     background-color: $bg-primary-color;
     border-top: solid 1px white;
@@ -74,12 +80,14 @@
         transparent 5%
       )
       100% 1;
+    height: 56px;
     padding: 16px 20px;
+    cursor: pointer;
     /* Chrome : avoid selection of video when option overflow on it */
     position: relative;
     z-index: 1;
 
-    &--no-border {
+    &--top-border {
       border: none;
     }
 
