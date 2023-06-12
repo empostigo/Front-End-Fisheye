@@ -27,15 +27,12 @@
             height="22px" width="22px">
           <img id="up" class="sorting__icon" src="/assets/icons/angle-up.svg" alt="" height="22px" width="22px">
           <button id="categories" class="sorting__select" href="#" aria-labelledby="selectLabel" role="button"
-            data-index-number="10">
+            aria-haspopup="listbox" aria-expanded="false" data-index-number="10">
             <ul class="sorting__categories">
-              <li id="10" class="sorting__option sorting__option--no-border" role="listbox"><a class="sorting__anchor"
-                  href="#" tabindex="-1">Popularité</a>
-              </li>
-              <li id="11" class="sorting__option" role="listbox"><a class="sorting__anchor" href="#"
-                  tabindex="-1">Date</a></li>
-              <li id="12" class="sorting__option" role="listbox"><a class="sorting__anchor" href="#"
-                  tabindex="-1">Titre</a></li>
+              <li id="10" class="sorting__option sorting__option--no-border" role="listbox" role="listbox"
+                aria-labelledby="selectLabel">Popularité</li>
+              <li id="11" class="sorting__option" role="listbox" role="listbox" aria-labelledby="selectLabel">Date</li>
+              <li id="12" class="sorting__option" role="listbox" role="listbox" aria-labelledby="selectLabel">Titre</li>
             </ul>
           </button>
         </div>

@@ -12,11 +12,13 @@ export class Sorting {
   openDropDown() {
     this.up.classList.add("sorting__icon--hidden")
     this.down.classList.remove("sorting__icon--hidden")
+    this.sortingElement.setAttribute("aria-expanded", true)
   }
 
   closeDropDown() {
     this.up.classList.remove("sorting__icon--hidden")
     this.down.classList.add("sorting__icon--hidden")
+    this.sortingElement.setAttribute("aria-expanded", false)
   }
 
   displayOption(index) {
@@ -24,9 +26,11 @@ export class Sorting {
     this.sortingOptions.forEach((element) => {
       element.classList.add("sorting__option--hidden")
       element.classList.remove("sorting__option--no-border")
+      element.setAttribute("aria-selected", false)
     })
     this.sortingOptions[index].classList.remove("sorting__option--hidden")
     this.sortingOptions[index].classList.add("sorting__option--no-border")
+    this.sortingOptions[index].setAttribute("aria-selected", true)
   }
 
   displayAllOptions() {
