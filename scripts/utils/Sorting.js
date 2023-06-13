@@ -61,8 +61,9 @@ export class Sorting {
 
     let flag = 0
     const toggleSelectState = () => {
-      if (flag++ % 2 === 0) sortingObject.displayAllOptions()
-      else {
+      if (flag++ % 2 === 0) {
+        sortingObject.displayAllOptions()
+      } else {
         sortingObject.displayOption(
           sortingObject.sortingElement.dataset.indexNumber % 10
         )
@@ -74,6 +75,8 @@ export class Sorting {
       element.addEventListener("click", () => {
         sortingObject.displayOption(element.id % 10)
         sortingObject.sortingElement.dataset.indexNumber = element.id
+        sortingObject.sortingElement.focus()
+        flag++
       })
     )
 
@@ -86,30 +89,5 @@ export class Sorting {
         }
       })
     )
-    /*
-    let index = 0
-    sortingObject.sortingElement.addEventListener("keydown", (event) => {
-      //if (event.key === "Enter") event.preventDefault()
-      if (event.key === "ArrowDown") {
-        event.preventDefault()
-        if (++index < sortingObject.sortingOptions.length) {
-          sortingObject.displayOption(index)
-          sortingObject.sortingElement.dataset.indexNumber =
-            sortingObject.sortingOptions[index].id
-        }
-        if (index === sortingObject.sortingOptions.length) index--
-      }
-
-      if (event.key === "ArrowUp") {
-        event.preventDefault()
-        if (--index >= 0) {
-          sortingObject.displayOption(index)
-          sortingObject.sortingElement.dataset.indexNumber =
-            sortingObject.sortingOptions[index].id
-        }
-        if (index < 0) index = 0
-      }
-    })
-    */
   }
 }

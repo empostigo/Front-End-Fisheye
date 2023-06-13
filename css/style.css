@@ -368,6 +368,7 @@ h2 {
   z-index: 2;
 }
 .sorting__select:focus {
+  outline: none;
   padding: 0;
 }
 .sorting__categories {
@@ -413,12 +414,12 @@ h2 {
   border: 1px solid #901c1c;
   border-radius: 5px;
 }
+.sorting__option--hidden {
+  display: none;
+}
 .sorting__option:focus {
   outline: none;
   box-shadow: 0 0 10px 100px #d3573c inset;
-}
-.sorting__option--hidden {
-  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */

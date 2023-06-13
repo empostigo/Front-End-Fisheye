@@ -41,6 +41,7 @@
     z-index: 2;
 
     &:focus {
+      outline: none;
       padding: 0;
     }
   }
@@ -102,13 +103,13 @@
       border-radius: 5px;
     }
 
+    &--hidden {
+      display: none;
+    }
+
     &:focus {
       outline: none;
       box-shadow: 0 0 10px 100px $bg-secondary-color inset;
-    }
-
-    &--hidden {
-      display: none;
     }
   }
 }
