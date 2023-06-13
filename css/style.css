@@ -3,16 +3,14 @@ body {
   margin: 0 100px;
 }
 
-p {
+p,
+ul,
+h2 {
   margin: 0;
 }
 
 a {
   text-decoration: none;
-}
-
-h2 {
-  margin: 0;
 }
 
 .header {
@@ -344,24 +342,15 @@ h2 {
   height: 56px;
   width: 170px;
 }
-.sorting__icon {
-  position: absolute;
-  top: calc(50% - 9px);
-  right: 18px;
-  z-index: 2;
-}
-.sorting__icon--hidden {
-  display: none;
-}
 .sorting__select {
   position: relative;
-  display: none;
+  font-size: 18px;
   text-align: left;
   width: 170px;
-  height: 56px;
+  margin: 0;
   color: #ffffff;
   background-color: transparent;
-  border: none;
+  border-radius: 5px;
   padding: 0;
   overflow: hidden;
   cursor: pointer;
@@ -371,16 +360,16 @@ h2 {
   outline: none;
   padding: 0;
 }
-.sorting__categories {
-  position: absolute;
-  top: 0;
-  padding: 0;
-  margin: 0;
-  font-size: 18px;
-  color: #ffffff;
-  width: 100%;
+.sorting__select--hidden {
+  display: none;
 }
-.sorting__categories--hidden {
+.sorting__icon {
+  position: absolute;
+  top: 20px;
+  right: 18px;
+  z-index: 2;
+}
+.sorting__icon--hidden {
   display: none;
 }
 .sorting__option {
@@ -395,6 +384,12 @@ h2 {
   /* Chrome : avoid selection of video when option overflow on it */
   position: relative;
   z-index: 1;
+  /*
+      &--bottom-border {
+        border-bottom: 1px solid $bg-primary-color;
+        border-radius: 0 0 5px 5px;
+      }
+  */
 }
 .sorting__option--no-border {
   border: none;
@@ -402,10 +397,6 @@ h2 {
 .sorting__option--top-border {
   border-top: 1px solid #901c1c;
   border-radius: 5px 5px 0 0;
-}
-.sorting__option--bottom-border {
-  border-bottom: 1px solid #901c1c;
-  border-radius: 0 0 5px 5px;
 }
 .sorting__option--radius-border {
   border-radius: 0 0 5px 5px;

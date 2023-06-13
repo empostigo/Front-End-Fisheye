@@ -1,7 +1,6 @@
 export class Sorting {
   constructor(sortingElement) {
     this.sortingElement = sortingElement
-    this.categories = document.querySelector(".sorting__categories")
     this.sortingOptions = Array.from(
       document.querySelectorAll(".sorting__option")
     )
@@ -29,35 +28,29 @@ export class Sorting {
       element.classList.add("sorting__option--hidden")
       element.classList.remove("sorting__option--no-border")
       element.setAttribute("aria-selected", false)
-      element.tabIndex = -1
     })
     this.closedDropDown()
     const displayedOption = this.sortingOptions[index]
     displayedOption.classList.add("sorting__option--all-border")
     displayedOption.classList.remove("sorting__option--hidden")
     displayedOption.setAttribute("aria-selected", true)
-
-    this.sortingElement.style.zIndex = 2
   }
 
   displayAllOptions() {
     this.openedDropDown()
     this.sortingOptions.forEach((element) => {
       element.className = "sorting__option"
-      element.tabIndex = 0
     })
     this.sortingOptions[0].classList.add("sorting__option--top-border")
     this.sortingOptions[0].classList.add("sorting__option--no-border")
-
     this.sortingOptions[2].classList.add("sorting__option--radius-border")
-    this.sortingElement.style.zIndex = 0
 
     this.sortingOptions[this.sortingElement.dataset.indexNumber % 10].focus()
   }
 
   static initElements(sortingObject) {
     sortingObject.displayOption(0)
-    sortingObject.categories.classList.remove("sorting__categories--hidden")
+    sortingObject.sortingElement.classList.remove("sorting__select--hidden")
 
     let flag = 0
     const toggleSelectState = () => {
@@ -70,23 +63,19 @@ export class Sorting {
       }
     }
     sortingObject.sortingElement.addEventListener("click", toggleSelectState)
+    sortingObject.sortingElement.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") toggleSelectState()
+    })
 
     sortingObject.sortingOptions.forEach((element) =>
       element.addEventListener("click", () => {
-        sortingObject.displayOption(element.id % 10)
         sortingObject.sortingElement.dataset.indexNumber = element.id
-        sortingObject.sortingElement.focus()
-        flag++
       })
     )
-
     sortingObject.sortingOptions.forEach((element) =>
       element.addEventListener("keydown", (event) => {
-        if (event.key === "Enter") {
-          sortingObject.displayOption(element.id % 10)
+        if (event.key === "Enter")
           sortingObject.sortingElement.dataset.indexNumber = element.id
-          sortingObject.sortingElement.focus()
-        }
       })
     )
   }

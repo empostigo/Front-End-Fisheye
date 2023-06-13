@@ -15,26 +15,15 @@
     width: 170px;
   }
 
-  &__icon {
-    position: absolute;
-    top: calc(50% - 9px);
-    right: 18px;
-    z-index: 2;
-
-    &--hidden {
-      display: none;
-    }
-  }
-
   &__select {
     position: relative;
-    display: none;
+    font-size: 18px;
     text-align: left;
     width: 170px;
-    height: 56px;
+    margin: 0;
     color: $no-color;
     background-color: transparent;
-    border: none;
+    border-radius: 5px;
     padding: 0;
     overflow: hidden;
     cursor: pointer;
@@ -44,16 +33,17 @@
       outline: none;
       padding: 0;
     }
+
+    &--hidden {
+      display: none;
+    }
   }
 
-  &__categories {
+  &__icon {
     position: absolute;
-    top: 0;
-    padding: 0;
-    margin: 0;
-    font-size: 18px;
-    color: $no-color;
-    width: 100%;
+    top: 20px;
+    right: 18px;
+    z-index: 2;
 
     &--hidden {
       display: none;
@@ -89,11 +79,12 @@
       border-radius: 5px 5px 0 0;
     }
 
+    /*
     &--bottom-border {
       border-bottom: 1px solid $bg-primary-color;
       border-radius: 0 0 5px 5px;
     }
-
+*/
     &--radius-border {
       border-radius: 0 0 5px 5px;
     }
