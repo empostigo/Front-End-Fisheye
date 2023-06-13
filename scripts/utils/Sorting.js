@@ -51,6 +51,8 @@ export class Sorting {
 
     this.sortingOptions[2].classList.add("sorting__option--radius-border")
     this.sortingElement.style.zIndex = 0
+
+    this.sortingOptions[this.sortingElement.dataset.indexNumber % 10].focus()
   }
 
   static initElements(sortingObject) {
