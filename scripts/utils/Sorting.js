@@ -29,6 +29,7 @@ export class Sorting {
       element.classList.add("sorting__option--hidden")
       element.classList.remove("sorting__option--no-border")
       element.setAttribute("aria-selected", false)
+      element.tabIndex = -1
     })
     this.closedDropDown()
     const displayedOption = this.sortingOptions[index]
@@ -43,6 +44,7 @@ export class Sorting {
     this.openedDropDown()
     this.sortingOptions.forEach((element) => {
       element.className = "sorting__option"
+      element.tabIndex = 0
     })
     this.sortingOptions[0].classList.add("sorting__option--top-border")
     this.sortingOptions[0].classList.add("sorting__option--no-border")
@@ -56,25 +58,36 @@ export class Sorting {
     sortingObject.categories.classList.remove("sorting__categories--hidden")
 
     let flag = 0
-    sortingObject.sortingElement.addEventListener("click", () => {
+    const toggleSelectState = () => {
       if (flag++ % 2 === 0) sortingObject.displayAllOptions()
-      else
+      else {
         sortingObject.displayOption(
           sortingObject.sortingElement.dataset.indexNumber % 10
         )
-    })
+      }
+    }
+    sortingObject.sortingElement.addEventListener("click", toggleSelectState)
 
     sortingObject.sortingOptions.forEach((element) =>
       element.addEventListener("click", () => {
         sortingObject.displayOption(element.id % 10)
         sortingObject.sortingElement.dataset.indexNumber = element.id
-        flag++
       })
     )
 
+    sortingObject.sortingOptions.forEach((element) =>
+      element.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          sortingObject.displayOption(element.id % 10)
+          sortingObject.sortingElement.dataset.indexNumber = element.id
+          sortingObject.sortingElement.focus()
+        }
+      })
+    )
+    /*
     let index = 0
     sortingObject.sortingElement.addEventListener("keydown", (event) => {
-      if (event.key === "Enter") event.preventDefault()
+      //if (event.key === "Enter") event.preventDefault()
       if (event.key === "ArrowDown") {
         event.preventDefault()
         if (++index < sortingObject.sortingOptions.length) {
@@ -95,5 +108,6 @@ export class Sorting {
         if (index < 0) index = 0
       }
     })
+    */
   }
 }

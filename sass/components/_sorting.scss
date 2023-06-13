@@ -102,8 +102,9 @@
       border-radius: 5px;
     }
 
-    &:focus-within {
-      background-color: $bg-secondary-color;
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 10px 100px $bg-secondary-color inset;
     }
 
     &--hidden {
