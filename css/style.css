@@ -372,7 +372,7 @@ a {
   z-index: 3;
 }
 .sorting__icon--hidden {
-  z-index: 0;
+  display: none;
 }
 .sorting__option {
   box-sizing: border-box;
