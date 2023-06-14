@@ -409,9 +409,5 @@ a {
 .sorting__option--hidden {
   display: none;
 }
-.sorting__option:focus {
-  outline: none;
-  box-shadow: 0 0 10px 100px #d3573c inset;
-}
 
 /*# sourceMappingURL=style.css.map */
