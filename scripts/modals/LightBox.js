@@ -3,17 +3,20 @@ import { MediaFactory } from "../factories/MediaFactory.js"
 export class LightBox {
   constructor(mediaArray, photographerName) {
     this.mediaArray = mediaArray
-    this.photographerName = photographerName // basedir to phtotgrapher medias
+    this.photographerName = photographerName // Also basedir to photographer medias
     this.lightBox = document.getElementById("lightBox")
     this.previousMedia = document.getElementById("previousMedia")
     this.nextMedia = document.getElementById("nextMedia")
     this.closeLightBoxButton = document.getElementById("closeLightBox")
   }
 
-  // Is set when creating media card, in PhotographerPage.js, line 139
-  // to position the lightbox on the media opened, using its numeric id
+  // Is set when creating media card, in PhotographerPage.js (which has a LightBox object),
+  // line 139 to position the lightbox on the media opened, using its numeric id.
+  // Set index to avoid get out of the array of medias, when scrolling medias
   set mediaIndex(mediaIndex) {
+    // From end to beginning of array
     if (mediaIndex === this.mediaArray.length) this._mediaIndex = 0
+    // From beginning to end of array
     else if (mediaIndex < 0) this._mediaIndex = this.mediaArray.length - 1
     else this._mediaIndex = mediaIndex
   }
@@ -22,6 +25,7 @@ export class LightBox {
     return this._mediaIndex
   }
 
+  // Create card with media from newMediaDOM() below
   createMediaDOM(media) {
     const displayDiv = document.createElement("div")
     displayDiv.className = "lightbox__div"
@@ -36,6 +40,8 @@ export class LightBox {
     return displayDiv
   }
 
+  // Create img of video tag with classes and attributes
+  // this.mediaIndex is set by PhotographerPage.js, see line 13 above
   newMediaDOM() {
     const mediaInfos = this.mediaArray[this.mediaIndex]
     const media = new MediaFactory(
@@ -55,6 +61,7 @@ export class LightBox {
     )
   }
 
+  // eslint: "this" is not used, so it's stated that this method should be static
   static removeMediaDOM() {
     const divToRemove = document.querySelector(".lightbox__div")
     if (divToRemove) divToRemove.remove()

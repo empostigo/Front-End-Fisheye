@@ -6,6 +6,7 @@ const photographers = await new FetchData(url, "photographers").getData()
 
 const photographersSection = document.querySelector(".photographers")
 
+// Append all photographers cards
 photographers.forEach((photographer) => {
   const photographerModel = new PhotographerFactory(photographer)
   const userCardDOM = photographerModel.getUserCardDOM()

@@ -23,6 +23,7 @@ export class Sorting {
     this.sortingElement.setAttribute("aria-expanded", false)
   }
 
+  // Style applied when the listbox is closed
   displayOption(index) {
     this.sortingOptions.forEach((element) => {
       element.classList.add("sorting__option--hidden")
@@ -36,6 +37,7 @@ export class Sorting {
     displayedOption.setAttribute("aria-selected", true)
   }
 
+  // Style applied when the listbox is opened
   displayAllOptions() {
     this.openedDropDown()
     this.sortingOptions.forEach((element) => {
@@ -49,14 +51,18 @@ export class Sorting {
   }
 
   static initElements(sortingObject) {
+    // Start with "Popularité" option displayed
+    // See photographer.js line 14, where the medias array is created
     sortingObject.displayOption(0)
 
-    let flag = 0
+    let flag = 0 // Used to open or close the listbox
     const toggleSelectState = () => {
       if (flag++ % 2 === 0) {
         sortingObject.displayAllOptions()
       } else {
         sortingObject.displayOption(
+          // Ids of li tags are: 10, 11 or 12, % 10 gives us the index in the array
+          // dataset is used to sorting the array, see photographer.js, line 35
           sortingObject.sortingElement.dataset.indexNumber % 10
         )
       }
@@ -64,6 +70,12 @@ export class Sorting {
     sortingObject.sortingElement.addEventListener("click", toggleSelectState)
     sortingObject.sortingElement.addEventListener("keydown", (event) => {
       if (event.key === "Enter") toggleSelectState()
+    })
+    sortingObject.sortingElement.addEventListener("keydown", (event) => {
+      if (event.key === " ") {
+        event.preventDefault()
+        toggleSelectState()
+      }
     })
 
     sortingObject.sortingOptions.forEach((element) =>
@@ -75,6 +87,14 @@ export class Sorting {
       element.addEventListener("keydown", (event) => {
         if (event.key === "Enter")
           sortingObject.sortingElement.dataset.indexNumber = element.id
+      })
+    )
+    sortingObject.sortingOptions.forEach((element) =>
+      element.addEventListener("keydown", (event) => {
+        if (event.key === " ") {
+          event.preventDefault()
+          sortingObject.sortingElement.dataset.indexNumber = element.id
+        }
       })
     )
   }

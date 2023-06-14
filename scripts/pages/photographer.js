@@ -32,12 +32,12 @@ const photographerPageDisplay = (photographerWorks) => {
   cardArray.forEach((card) => workDisplay.append(card))
 }
 
+const sortingElement = document.getElementById("categories")
 const waitForSortingMedias = () => {
-  const selectElement = document.getElementById("categories")
   const observer = new MutationObserver((options) => {
     options.forEach((mutation) => {
       if (mutation.type === "attributes") {
-        switch (selectElement.dataset.indexNumber) {
+        switch (sortingElement.dataset.indexNumber) {
           case "10":
             mediasArray.sort((a, b) => (a.likes < b.likes ? 1 : -1))
             break
@@ -62,9 +62,8 @@ const waitForSortingMedias = () => {
     })
   })
 
-  observer.observe(selectElement, { attributes: true })
+  observer.observe(sortingElement, { attributes: true })
 
-  const sortingElement = document.getElementById("categories")
   const sortingObject = new Sorting(sortingElement)
   Sorting.initElements(sortingObject)
 }

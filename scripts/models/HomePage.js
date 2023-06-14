@@ -1,6 +1,7 @@
 import { BasePage } from "./BasePage.js"
 
 export class HomePage extends BasePage {
+  // Create artist card
   getUserCardDOM = () => {
     // set class name, use BEM notation
     const articleClass = "photographer"
@@ -26,11 +27,13 @@ export class HomePage extends BasePage {
     anchorAriaLabel.value = this.name
     anchor.setAttributeNode(anchorAriaLabel)
 
+    // Portrait
     const image = document.createElement("img")
     image.className = imageClass
     image.src = this.picture
     image.alt = this.name
 
+    // Photographer name
     const h2 = document.createElement("h2")
     h2.className = h2Class
     h2.textContent = this.name

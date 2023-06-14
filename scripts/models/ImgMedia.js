@@ -4,6 +4,7 @@ export class ImgMedia {
     this.basedir = basedir
   }
 
+  // Media used in the photographer page
   get mediaElement() {
     const media = document.createElement("img")
     media.src = `${this.basedir}/${this.media.image}`
@@ -13,6 +14,7 @@ export class ImgMedia {
     return media
   }
 
+  // Media used in the lightbox
   get lightBoxMedia() {
     return this.mediaElement
   }

@@ -4,6 +4,7 @@ export class VideoMedia {
     this.basedir = basedir
   }
 
+  // Media used in the photographer page
   get mediaElement() {
     const media = document.createElement("video")
     media.src = `${this.basedir}/${this.media.video}`
@@ -12,6 +13,8 @@ export class VideoMedia {
     return media
   }
 
+  // Media used in the lightbox
+  // Add controls
   get lightBoxMedia() {
     const media = document.createElement("video")
     media.src = `${this.basedir}/${this.media.video}`

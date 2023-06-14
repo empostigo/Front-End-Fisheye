@@ -63,6 +63,11 @@
     position: relative;
     z-index: 1;
 
+    &:focus-visible {
+      outline: 1px solid $neutral-color;
+      outline-offset: -5px;
+    }
+
     &--no-border {
       border: none;
     }

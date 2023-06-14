@@ -379,6 +379,10 @@ a {
   position: relative;
   z-index: 1;
 }
+.sorting__option:focus-visible {
+  outline: 1px solid black;
+  outline-offset: -5px;
+}
 .sorting__option--no-border {
   border: none;
 }

@@ -1,3 +1,4 @@
+// Base class for HomePage and PhotographerPage
 export class BasePage {
   constructor(photographer) {
     this.photographer = photographer
