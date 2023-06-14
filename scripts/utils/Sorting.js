@@ -50,7 +50,6 @@ export class Sorting {
 
   static initElements(sortingObject) {
     sortingObject.displayOption(0)
-    sortingObject.sortingElement.classList.remove("sorting__select--hidden")
 
     let flag = 0
     const toggleSelectState = () => {
