@@ -355,7 +355,6 @@ a {
   cursor: pointer;
 }
 .sorting__select:focus {
-  outline: none;
   padding: 0;
 }
 .sorting__select--hidden {
