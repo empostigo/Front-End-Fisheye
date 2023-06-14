@@ -357,9 +357,6 @@ a {
 .sorting__select:focus {
   padding: 0;
 }
-.sorting__select--hidden {
-  display: none;
-}
 .sorting__icon {
   position: absolute;
   top: 20px;
