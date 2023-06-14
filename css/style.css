@@ -343,7 +343,8 @@ a {
   width: 170px;
 }
 .sorting__select {
-  position: relative;
+  position: absolute;
+  left: 200px;
   font-size: 18px;
   text-align: left;
   width: 170px;
@@ -367,7 +368,7 @@ a {
   position: absolute;
   top: 20px;
   right: 18px;
-  z-index: 2;
+  z-index: 3;
 }
 .sorting__icon--hidden {
   display: none;
@@ -411,6 +412,9 @@ a {
 .sorting__option:focus {
   outline: none;
   box-shadow: 0 0 10px 100px #d3573c inset;
+}
+.sorting__option::selection {
+  box-shadow: none;
 }
 
 /*# sourceMappingURL=style.css.map */
