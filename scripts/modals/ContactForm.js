@@ -25,10 +25,6 @@ export class ContactForm {
     const modalAriaLabelledBy = document.createAttribute("aria-labelledby")
     modalAriaLabelledBy.value = "modalTitle"
     this.modal.setAttributeNode(modalAriaLabelledBy)
-
-    const closeElementAriaLabel = document.createAttribute("aria-label")
-    closeElementAriaLabel.value = "Close Contact form"
-    this.closeElement.setAttributeNode(closeElementAriaLabel)
   }
 
   hideModal() {
