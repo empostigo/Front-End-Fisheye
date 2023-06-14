@@ -413,8 +413,5 @@ a {
   outline: none;
   box-shadow: 0 0 10px 100px #d3573c inset;
 }
-.sorting__option::selection {
-  box-shadow: none;
-}
 
 /*# sourceMappingURL=style.css.map */
