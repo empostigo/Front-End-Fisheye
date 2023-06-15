@@ -1,6 +1,4 @@
-# Base de code du projet P6 - Parcours Front-end
+# Fisheye - Projet 6 - Openclassrooms
+## Par Emmanuel Postigo - Formation Développeur d'applications Javascript/React
 
-## Démarrer le projet
-
-Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.
-
+Site de démonstration sur Netlify : https://oc-fisheye.empostigo.dev
