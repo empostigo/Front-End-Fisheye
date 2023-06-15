@@ -1,7 +1,7 @@
-import { HomePage } from "../models/HomePage.js"
-import { PhotographerPage } from "../models/PhotographerPage.js"
+import HomePage from "../models/HomePage.js"
+import PhotographerPage from "../models/PhotographerPage.js"
 
-export class PhotographerFactory {
+export default class PhotographerFactory {
   constructor(data, otherData = "") {
     this.pathname = new URL(document.location).pathname.replace("/", "")
     // HomePage (index.js) photographers type

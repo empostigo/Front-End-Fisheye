@@ -1,4 +1,4 @@
-export class ImgMedia {
+export default class ImgMedia {
   constructor(media, basedir) {
     this.media = media
     this.basedir = basedir

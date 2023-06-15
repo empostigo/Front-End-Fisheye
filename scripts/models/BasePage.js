@@ -1,5 +1,5 @@
 // Base class for HomePage and PhotographerPage
-export class BasePage {
+export default class BasePage {
   constructor(photographer) {
     this.photographer = photographer
     this.name = photographer.name

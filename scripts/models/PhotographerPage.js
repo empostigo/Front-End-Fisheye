@@ -1,9 +1,9 @@
-import { BasePage } from "./BasePage.js"
-import { MediaFactory } from "../factories/MediaFactory.js"
-import { ContactForm } from "../modals/ContactForm.js"
-import { LightBox } from "../modals/LightBox.js"
+import BasePage from "./BasePage.js"
+import MediaFactory from "../factories/MediaFactory.js"
+import ContactForm from "../modals/ContactForm.js"
+import LightBox from "../modals/LightBox.js"
 
-export class PhotographerPage extends BasePage {
+export default class PhotographerPage extends BasePage {
   constructor(photographer, mediasArray) {
     super(photographer)
     this.mediasArray = mediasArray

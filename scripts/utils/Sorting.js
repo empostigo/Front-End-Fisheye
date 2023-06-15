@@ -1,4 +1,4 @@
-export class Sorting {
+export default class Sorting {
   constructor(sortingElement) {
     this.sortingElement = sortingElement
     this.sortingOptions = Array.from(

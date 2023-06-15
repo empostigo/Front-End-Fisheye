@@ -1,6 +1,6 @@
-import { MediaFactory } from "../factories/MediaFactory.js"
+import MediaFactory from "../factories/MediaFactory.js"
 
-export class LightBox {
+export default class LightBox {
   constructor(mediasArray, photographerName) {
     this.mediasArray = mediasArray
     this.photographerName = photographerName // Also basedir to photographer medias

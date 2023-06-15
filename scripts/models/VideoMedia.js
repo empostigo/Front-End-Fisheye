@@ -1,4 +1,4 @@
-export class VideoMedia {
+export default class VideoMedia {
   constructor(media, basedir) {
     this.media = media
     this.basedir = basedir

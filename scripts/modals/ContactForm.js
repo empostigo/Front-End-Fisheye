@@ -1,4 +1,4 @@
-export class ContactForm {
+export default class ContactForm {
   constructor(photographerName) {
     // Contact modal elements
     this.modal = document.getElementById("contactModal")

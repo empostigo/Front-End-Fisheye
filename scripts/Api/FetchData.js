@@ -1,4 +1,4 @@
-export class FetchData {
+export default class FetchData {
   constructor(url, data, maxAge = "1800") {
     this.url = url
     this.data = data

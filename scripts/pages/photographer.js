@@ -1,7 +1,7 @@
-import { FetchData } from "../Api/FetchData.js"
-import { PhotographerFactory } from "../factories/PhotographerFactory.js"
-import { PhotographerPage } from "../models/PhotographerPage.js"
-import { Sorting } from "../utils/Sorting.js"
+import FetchData from "../Api/FetchData.js"
+import PhotographerFactory from "../factories/PhotographerFactory.js"
+import PhotographerPage from "../models/PhotographerPage.js"
+import Sorting from "../utils/Sorting.js"
 
 const url = "/data/photographers.json"
 const photographers = await new FetchData(url, "photographers").getData()

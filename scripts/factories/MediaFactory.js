@@ -1,7 +1,7 @@
-import { ImgMedia } from "../models/ImgMedia.js"
-import { VideoMedia } from "../models/VideoMedia.js"
+import ImgMedia from "../models/ImgMedia.js"
+import VideoMedia from "../models/VideoMedia.js"
 
-export class MediaFactory {
+export default class MediaFactory {
   constructor(media, basedir) {
     if (Object.keys(media).includes("image")) {
       return new ImgMedia(media, basedir)

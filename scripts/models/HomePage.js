@@ -1,6 +1,6 @@
-import { BasePage } from "./BasePage.js"
+import BasePage from "./BasePage.js"
 
-export class HomePage extends BasePage {
+export default class HomePage extends BasePage {
   // Create artist card
   getUserCardDOM = () => {
     // set class name, use BEM notation
