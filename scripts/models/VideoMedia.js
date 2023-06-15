@@ -14,7 +14,7 @@ export class VideoMedia {
   }
 
   // Media used in the lightbox
-  // Add controls
+  // Add controls to videos
   get lightBoxMedia() {
     const media = document.createElement("video")
     media.src = `${this.basedir}/${this.media.video}`

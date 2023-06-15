@@ -4,46 +4,22 @@ import { ContactForm } from "../modals/ContactForm.js"
 import { LightBox } from "../modals/LightBox.js"
 
 export class PhotographerPage extends BasePage {
-  constructor(photographer, medias) {
+  constructor(photographer, mediasArray) {
     super(photographer)
-    this.medias = medias
+    this.mediasArray = mediasArray
     this.totalLikes = this.countLikes()
-    this.flag = 0
     this.contactForm = new ContactForm(this.name)
-    this.lightBox = new LightBox(this.medias, photographer.name)
-  }
-
-  set medias(mediasArray) {
-    this._medias = mediasArray
-  }
-
-  get medias() {
-    return this._medias
-  }
-
-  set flag(nb) {
-    this._flag = nb
-  }
-
-  get flag() {
-    return this._flag
+    this.lightBox = new LightBox(this.mediasArray, photographer.name)
   }
 
   countLikes() {
-    return this.medias
+    return this.mediasArray
       .map(({ likes }) => ({ likes }))
       .reduce((total, current) => total + current.likes, 0)
   }
 
-  set totalLikes(nbLikes) {
-    this._totalLikes = nbLikes
-  }
-
-  get totalLikes() {
-    return this._totalLikes
-  }
-
-  getUserCardDOM = () => {
+  // Photographer header
+  getPhotographerHeader() {
     // set class names , BEM notation
     const parentClass = "photographer-header"
     const descriptionClass = `${parentClass}__description`
@@ -117,7 +93,7 @@ export class PhotographerPage extends BasePage {
     return { description, image, insert }
   }
 
-  getUserWorkCard(data, index) {
+  getPhotographerWorkCard(data, index) {
     // class names
     const mediaCardClass = "mediaCard"
     const mediaClass = `${mediaCardClass}__media`
@@ -201,8 +177,9 @@ export class PhotographerPage extends BasePage {
   }
 
   getUserWorksDOM() {
-    let index = 0
-    return this.medias.map((media) => this.getUserWorkCard(media, index++))
+    return this.mediasArray.map((media, counter) =>
+      this.getPhotographerWorkCard(media, counter)
+    )
   }
 
   static removeUserWorkCards(selector) {

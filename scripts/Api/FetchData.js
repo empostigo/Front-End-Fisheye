@@ -10,7 +10,7 @@ export class FetchData {
   async get() {
     return fetch(this.url, { headers: this.header })
       .then((response) => response.json())
-      .then((data) => data[this.data])
+      .then((data) => data[this.data]) // [this.data]: "photographers" or "media"
       .catch((err) =>
         console.error("Erreur lors de la lecture des données", err)
       )

@@ -1,8 +1,8 @@
 import { MediaFactory } from "../factories/MediaFactory.js"
 
 export class LightBox {
-  constructor(mediaArray, photographerName) {
-    this.mediaArray = mediaArray
+  constructor(mediasArray, photographerName) {
+    this.mediasArray = mediasArray
     this.photographerName = photographerName // Also basedir to photographer medias
     this.lightBox = document.getElementById("lightBox")
     this.previousMedia = document.getElementById("previousMedia")
@@ -15,9 +15,9 @@ export class LightBox {
   // Set index to avoid get out of the array of medias, when scrolling medias
   set mediaIndex(mediaIndex) {
     // From end to beginning of array
-    if (mediaIndex === this.mediaArray.length) this._mediaIndex = 0
+    if (mediaIndex === this.mediasArray.length) this._mediaIndex = 0
     // From beginning to end of array
-    else if (mediaIndex < 0) this._mediaIndex = this.mediaArray.length - 1
+    else if (mediaIndex < 0) this._mediaIndex = this.mediasArray.length - 1
     else this._mediaIndex = mediaIndex
   }
 
@@ -32,7 +32,7 @@ export class LightBox {
 
     const mediaTitle = document.createElement("p")
     mediaTitle.className = "lightbox__title"
-    mediaTitle.textContent = this.mediaArray[this.mediaIndex].title
+    mediaTitle.textContent = this.mediasArray[this.mediaIndex].title
     mediaTitle.tabIndex = 0
 
     displayDiv.append(media, mediaTitle)
@@ -43,7 +43,7 @@ export class LightBox {
   // Create img of video tag with classes and attributes
   // this.mediaIndex is set by PhotographerPage.js, see line 13 above
   newMediaDOM() {
-    const mediaInfos = this.mediaArray[this.mediaIndex]
+    const mediaInfos = this.mediasArray[this.mediaIndex]
     const media = new MediaFactory(
       mediaInfos,
       `/assets/works/${this.photographerName}`
@@ -79,6 +79,9 @@ export class LightBox {
     this.newMediaDOM()
   }
 
+  // This method method is used in PhotographerPage.js, line 116
+  // An eventListener is attach to all media cards of the page
+  // To open the lightbox when pressing Enter or clicking
   openLightBox() {
     document.getElementById("main").style.display = "none"
     document.getElementById("header").style.display = "none"
@@ -100,6 +103,7 @@ export class LightBox {
   }
 
   static initElements(lightBox) {
+    // Scrolling medias
     const waitingForArrowkey = (event) => {
       if (event.key === "ArrowLeft") lightBox.displayPreviousMedia()
       if (event.key === "ArrowRight") lightBox.displayNextMedia()
@@ -107,6 +111,7 @@ export class LightBox {
 
     document.addEventListener("keydown", waitingForArrowkey)
 
+    // Arrow keys navigation
     lightBox.nextMedia.addEventListener("click", () => {
       lightBox.displayNextMedia()
     })
@@ -127,6 +132,7 @@ export class LightBox {
       }
     })
 
+    // Closing lightbox evnts: Clicking, pressing Enter or Escape
     lightBox.closeLightBoxButton.addEventListener("click", () => {
       lightBox.closeLightBox()
       document.removeEventListener("keydown", waitingForArrowkey)
