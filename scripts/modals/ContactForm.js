@@ -14,7 +14,7 @@ export default class ContactForm {
     )
   }
 
-  setAccessibility() {
+  setAccessibility = () => {
     // "Contactez-moi\n Name of the photographer"
     const title = document.querySelector(".modal__title")
     const name = document.createTextNode(this.photographerName)
@@ -27,15 +27,15 @@ export default class ContactForm {
     this.modal.setAttributeNode(modalAriaLabelledBy)
   }
 
-  hideModal() {
+  hideModal = () => {
     this.modal.style.display = "none"
   }
 
-  showModal() {
+  showModal = () => {
     this.modal.style.display = "block"
   }
 
-  static initElements(modal) {
+  static initElements = (modal) => {
     /* /////////////////////////////////////////////// */
     // Open modal
     modal.openElement.addEventListener("click", () => {

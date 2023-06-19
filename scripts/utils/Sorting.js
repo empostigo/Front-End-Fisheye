@@ -10,21 +10,21 @@ export default class Sorting {
   }
 
   // Display arrow up icon listbox
-  openedDropDown() {
+  openedDropDown = () => {
     this.up.classList.remove("sorting__icon--hidden")
     this.down.classList.add("sorting__icon--hidden")
     this.sortingElement.setAttribute("aria-expanded", true)
   }
 
   // Display arrow down icon listbox
-  closedDropDown() {
+  closedDropDown = () => {
     this.up.classList.add("sorting__icon--hidden")
     this.down.classList.remove("sorting__icon--hidden")
     this.sortingElement.setAttribute("aria-expanded", false)
   }
 
   // Style applied when the listbox is closed
-  displayOption(index) {
+  displayOption = (index) => {
     this.sortingOptions.forEach((element) => {
       element.classList.add("sorting__option--hidden")
       element.classList.remove("sorting__option--no-border")
@@ -38,7 +38,7 @@ export default class Sorting {
   }
 
   // Style applied when the listbox is opened
-  displayAllOptions() {
+  displayAllOptions = () => {
     this.openedDropDown()
     this.sortingOptions.forEach((element) => {
       element.className = "sorting__option"
@@ -50,7 +50,7 @@ export default class Sorting {
     this.sortingOptions[this.sortingElement.dataset.indexNumber % 10].focus()
   }
 
-  static initElements(sortingObject) {
+  static initElements = (sortingObject) => {
     // Start with "Popularité" option displayed
     // See photographer.js line 14, where the medias array is created
     sortingObject.displayOption(0)

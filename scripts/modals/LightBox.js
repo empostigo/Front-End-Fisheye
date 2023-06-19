@@ -26,7 +26,7 @@ export default class LightBox {
   }
 
   // Create card with media from newMediaDOM() below
-  createMediaDOM(media) {
+  createMediaDOM = (media) => {
     const displayDiv = document.createElement("div")
     displayDiv.className = "lightbox__div"
 
@@ -42,7 +42,7 @@ export default class LightBox {
 
   // Create img of video tag with classes and attributes
   // this.mediaIndex is set by PhotographerPage.js, see line 13 above
-  newMediaDOM() {
+  newMediaDOM = () => {
     const mediaInfos = this.mediasArray[this.mediaIndex]
     const media = new MediaFactory(
       mediaInfos,
@@ -62,18 +62,18 @@ export default class LightBox {
   }
 
   // eslint: "this" is not used, so it's stated that this method should be static
-  static removeMediaDOM() {
+  static removeMediaDOM = () => {
     const divToRemove = document.querySelector(".lightbox__div")
     if (divToRemove) divToRemove.remove()
   }
 
-  displayPreviousMedia() {
+  displayPreviousMedia = () => {
     LightBox.removeMediaDOM()
     this.mediaIndex--
     this.newMediaDOM()
   }
 
-  displayNextMedia() {
+  displayNextMedia = () => {
     LightBox.removeMediaDOM()
     this.mediaIndex++
     this.newMediaDOM()
@@ -82,7 +82,7 @@ export default class LightBox {
   // This method method is used in PhotographerPage.js, line 116
   // An eventListener is attach to all media cards of the page
   // To open the lightbox when pressing Enter or clicking
-  openLightBox() {
+  openLightBox = () => {
     document.getElementById("main").style.display = "none"
     document.getElementById("header").style.display = "none"
     this.newMediaDOM()
@@ -92,7 +92,7 @@ export default class LightBox {
     LightBox.initElements(this)
   }
 
-  closeLightBox() {
+  closeLightBox = () => {
     document.getElementById("main").style.display = "block"
     document.getElementById("header").style.display = "flex"
     LightBox.removeMediaDOM()
@@ -102,7 +102,7 @@ export default class LightBox {
     this.lightBox.style.display = "none"
   }
 
-  static initElements(lightBox) {
+  static initElements = (lightBox) => {
     // Scrolling medias
     const waitingForArrowkey = (event) => {
       if (event.key === "ArrowLeft") lightBox.displayPreviousMedia()

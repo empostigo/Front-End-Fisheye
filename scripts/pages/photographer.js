@@ -35,7 +35,9 @@ parent.append(image, insert)
 // and add them to div.works-display
 const photographerPageDisplay = (photographerWorks) => {
   const workDisplay = document.querySelector(".works_display")
-  const cardArray = photographerWorks.getUserWorksDOM()
+  const cardArray = photographerWorks.mediasArray.map((media, counter) =>
+    photographerWorks.getPhotographerWorkCard(media, counter)
+  )
   cardArray.forEach((card) => workDisplay.append(card))
 }
 

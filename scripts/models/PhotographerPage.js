@@ -7,19 +7,15 @@ export default class PhotographerPage extends BasePage {
   constructor(photographer, mediasArray) {
     super(photographer)
     this.mediasArray = mediasArray
-    this.totalLikes = this.countLikes()
+    this.totalLikes = this.mediasArray
+      .map(({ likes }) => ({ likes }))
+      .reduce((total, current) => total + current.likes, 0)
     this.contactForm = new ContactForm(this.name)
     this.lightBox = new LightBox(this.mediasArray, photographer.name)
   }
 
-  countLikes() {
-    return this.mediasArray
-      .map(({ likes }) => ({ likes }))
-      .reduce((total, current) => total + current.likes, 0)
-  }
-
   // Photographer header
-  getPhotographerHeader() {
+  getPhotographerHeader = () => {
     // set class names , BEM notation
     const parentClass = "photographer-header"
     const descriptionClass = `${parentClass}__description`
@@ -93,7 +89,7 @@ export default class PhotographerPage extends BasePage {
     return { description, image, insert }
   }
 
-  getPhotographerWorkCard(data, index) {
+  getPhotographerWorkCard = (data, index) => {
     // class names
     const mediaCardClass = "mediaCard"
     const mediaClass = `${mediaCardClass}__media`
@@ -176,13 +172,7 @@ export default class PhotographerPage extends BasePage {
     return mediaCard
   }
 
-  getUserWorksDOM() {
-    return this.mediasArray.map((media, counter) =>
-      this.getPhotographerWorkCard(media, counter)
-    )
-  }
-
-  static removeUserWorkCards(selector) {
+  static removeUserWorkCards = (selector) => {
     const workDisplay = document.querySelector(selector)
     const workDisplayCards = Array.from(workDisplay.children)
     workDisplayCards.forEach((element) => {
@@ -190,7 +180,7 @@ export default class PhotographerPage extends BasePage {
     })
   }
 
-  setModal() {
+  setModal = () => {
     ContactForm.initElements(this.contactForm)
   }
 }
